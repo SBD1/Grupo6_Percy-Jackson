@@ -12,7 +12,7 @@
 | 180119508 | [Eric Chagas de Oliveira](https://github.com/Eric-chagas)  |
 | 190013354 | [Gabriel Luiz de Souza Gomes](https://github.com/ggomesbr) |
 | 180042041 | [Gustavo Barbosa De Oliveira](https://github.com/brbsg)    |
-| 180121308 | [Giulia de Alcantara](https://github.com/alcantaragiubs)   |
+| 180121308 | [Giulia Alcantara](https://github.com/alcantaragiubs)   |
 | 180130889 | [Sávio Cunha de Carvalho](https://github.com/savioc2)      |
  
  ##  💻 Visão Geral
