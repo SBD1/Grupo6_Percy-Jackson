@@ -16,10 +16,14 @@
 | 180130889 | [Sávio Cunha de Carvalho](https://github.com/savioc2)      |
  
  ##  💻 Visão Geral
+ 
+ <p align="center">
+  <img width="500" src="https://64.media.tumblr.com/62d76d84caa49f8478dba7c7d59d9990/95c443868115378f-60/s540x810/ca67acde8c14f4d2032b70b179864e65a1980ed4.gifv">
+</p>
 
 <p> Este repositório servirá para aprofundarmos e trabalharmos os conhecimentos com relação a disciplina Sistema de Banco de Dados I da Universidade de Brasília(UnB), através da implementação de um jogo utilizando os principais conceitos adquiridos na matéria. </p>
 
-## 🧙 Execução do Projeto
+## ⚡ Execução do Projeto
 
 <p> Descrição do Projeto </p>
 
