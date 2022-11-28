@@ -36,7 +36,56 @@
 ## NPC
 ## Inimigo
 ## Chefe
-## Médio
+
+| Nome    | Descrição                                      | Tipo de dado | Tamanho | Not null | Check           | Default | PK  | FK  |
+|---------|------------------------------------------------|--------------|---------|----------|-----------------|---------|-----|-----|
+| Id_NPC  | Identificador do NPC                           | Int          |         | Sim      | Id_NPC >= 1     |         | Sim | Não |
+| Tipo    | Tipo de NPC                                    | Varchar      |     100 | Sim      | Tipo == 'Chefe' | Chefe   | Não | Não |
+| Chefe   | NPC é chefe ou não                             | Boolean      |         | Sim      | Chefe == TRUE   | TRUE    | Não | Não |
+| Vida    | Saúde do NPC                                   | Int          |         | Sim      |                 | 500     | Não | Não |
+| Poder   | Poder de ataque do NPC                         | Varchar      |      30 | Sim      |                 |         | Não | Não |
+| Id_sala | Identificador da sala em que o NPC se encontra | Int          |         | Sim      |                 |         | Não | Sim |
+
+## Comum
+
+| Nome     | Descrição                                            | Tipo de dado | Tamanho | Not null | Check              | Default | PK  | FK  |
+|----------|------------------------------------------------------|--------------|---------|----------|--------------------|---------|-----|-----|
+| Id_NPC   | Identificador do NPC                                 | Int          |         | Sim      | Id_NPC >= 1        |         | Sim | Não |
+| Tipo     | Tipo de NPC                                          | Varchar      |     100 | Sim      | Tipo == 'Amigo'    | Amigo   | Não | Não |
+| Narrador | NPC é narrador ou não                                | Boolean      |         | Sim      | Narrador == FALSE  | FALSE   | Não | Não |
+| Diálogo  | Diálogos do NPC                                      | Varchar      |     600 | Sim      |                    |         | Não | Não |
+| Id_sala  | Identificador da sala em que o NPC chefe se encontra | Int          |         | Sim      |                    |         | Não | Sim |
+|          |                                                      |              |         |          |                    |         |     |     |
+
 ## Amigável
+
+| Nome     | Descrição                                      | Tipo de dado | Tamanho | Not null | Check                         | Default | PK  | FK  |
+|----------|------------------------------------------------|--------------|---------|----------|-------------------------------|---------|-----|-----|
+| Id_NPC   | Identificador do NPC                           | Int          |         | Sim      | Id_NPC >= 1                   |         | Sim | Não |
+| Tipo     | Tipo de NPC                                    | Varchar      |     100 | Sim      | Tipo in ('Narrador', 'Amigo') |         | Não | Não |
+| Narrador | NPC é narrador ou não                          | Boolean      |         | Sim      | Narrador in (TRUE, FALSE)     |         | Não | Não |
+| Diálogo  | Diálogos do NPC                                | Varchar      |     600 | Sim      |                               |         | Não | Não |
+| Id_sala  | Identificador da sala em que o NPC se encontra | Int          |         | Sim      |                               |         | Não | Sim |
+|          |                                                |              |         |          |                               |         |     |     |
+
 ## Narrador
+
+| Nome     | Descrição                                            | Tipo de dado | Tamanho | Not null | Check              | Default  | PK  | FK  |
+|----------|------------------------------------------------------|--------------|---------|----------|--------------------|----------|-----|-----|
+| Id_NPC   | Identificador do NPC                                 | Int          |         | Sim      | Id_NPC >= 1        |          | Sim | Não |
+| Tipo     | Tipo de NPC                                          | Varchar      |     100 | Sim      | Tipo == 'Narrador' | Narrador | Não | Não |
+| Narrador | NPC é narrador ou não                                | Boolean      |         | Sim      | Narrador == TRUE   | TRUE     | Não | Não |
+| Diálogo  | Diálogos do NPC                                      | Varchar      |     600 | Sim      |                    |          | Não | Não |
+| Id_sala  | Identificador da sala em que o NPC chefe se encontra | Int          |         | Sim      |                    |          | Não | Sim |
+|          |                                                      |              |         |          |                    |          |     |     |
+
 ## Amigo
+
+| Nome     | Descrição                                            | Tipo de dado | Tamanho | Not null | Check              | Default | PK  | FK  |
+|----------|------------------------------------------------------|--------------|---------|----------|--------------------|---------|-----|-----|
+| Id_NPC   | Identificador do NPC                                 | Int          |         | Sim      | Id_NPC >= 1        |         | Sim | Não |
+| Tipo     | Tipo de NPC                                          | Varchar      |     100 | Sim      | Tipo == 'Amigo'    | Amigo   | Não | Não |
+| Narrador | NPC é narrador ou não                                | Boolean      |         | Sim      | Narrador == FALSE  | FALSE   | Não | Não |
+| Diálogo  | Diálogos do NPC                                      | Varchar      |     600 | Sim      |                    |         | Não | Não |
+| Id_sala  | Identificador da sala em que o NPC chefe se encontra | Int          |         | Sim      |                    |         | Não | Sim |
+|          |                                                      |              |         |          |                    |         |     |     |
