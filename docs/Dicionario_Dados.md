@@ -30,11 +30,61 @@
 | Id_sala_destino | Identificador da sala de origem | Int          |         | Sim      |                |         | Não | Sim |
 
 ## Código
+
+| Nome      | Descrição                                          | Tipo de dado | Tamanho | Not null | Check          | Default | PK  | FK  |
+|-----------|----------------------------------------------------|--------------|---------|----------|----------------|---------|-----|-----|
+| Id_código | Identificador do código                            | Int          |         | Sim      | Id_código >= 1 |         | Sim | Não |
+| Descrição | Fragmento de código                                | Varchar      |      10 | Sim      |                |         | Não | Não |
+| Id_sala   | Identificador da sala em que o código se encontra  | Int          |         | Sim      |                |         | Não | Sim |
+
 ## Jogador
+
+| Nome       | Descrição                                          | Tipo de dado | Tamanho | Not null | Check           | Default | PK  | FK  |
+|------------|----------------------------------------------------|--------------|---------|----------|-----------------|---------|-----|-----|
+| Id_jogador | Identificador do jogador                           | Int          |         | Sim      | Id_jogador >= 1 |         | Sim | Não |
+| Vida       | Saúde do jogador                                   | int          |         | Sim      |                 |     200 | Não | Não |
+| Progresso  | Progresso do jogador                               | Varchar      |         | Sim      |                 |         | Não | Não |
+| Id_sala    | Identificador da sala em que o jogador se encontra | Int          |         | Sim      |                 |       1 | Não | Sim |
+| Id_item    | Identificador do item que o jogador carrega        | Int          |         | Não      |                 |         | Não | Sim |
+
 ## Item
+
+| Nome          | Descrição                                   | Tipo de dado | Tamanho | Not null | Check        | Default | PK  | FK  |
+|---------------|---------------------------------------------|--------------|---------|----------|--------------|---------|-----|-----|
+| Id_item       | Identificador do item                       | Int          |         | Sim      | Id_item >= 1 |         | Sim | Não |
+| Nome          | Nome do item                                | Varchar      |      30 | Sim      |              |         | Não | Não |
+| Descrição     | Descrição do item                           | Int          |         | Sim      |              |         | Não | Não |
+| Id_jogador    | Identificador do jogador que carrega o item | Int          |         | Não      |              |         | Não | Sim |
+| Id_habilidade | Identificador da habilidade do item         | Int          |         | Sim      |              |         | Não | Sim |
+
 ## Habilidade
+
+| Nome          | Descrição                                           | Tipo de dado | Tamanho | Not null | Check              | Default       | PK  | FK  |
+|---------------|-----------------------------------------------------|--------------|---------|----------|--------------------|---------------|-----|-----|
+| Id_habilidade | Identificador da habilidade                         | Int          |         | Sim      | Id_habilidade >= 1 |               | Sim | Não |
+| Descrição     | Descrição da habilidade                             | Varchar      |     100 | Sim      |                    | Dano corporal | Não | Não |
+| Id_item       | Identificador do item ao qual a habilidade pertence | Int          |         | Não      |                    |               | Não | Sim |
+
+
 ## NPC
+
+| Nome    | Descrição                                      | Tipo de dado | Tamanho | Not null | Check                       | Default | PK  | FK  |
+|---------|------------------------------------------------|--------------|---------|----------|-----------------------------|---------|-----|-----|
+| Id_NPC  | Identificador do NPC                           | Int          |         | Sim      | Id_NPC >= 1                 |         | Sim | Não |
+| Tipo    | Tipo de NPC                                    | Varchar      |     100 | Não      | Tipo in ('Amigável', 'NPC') |         | Não | Não |
+| Id_sala | Identificador da sala em que o NPC se encontra | Int          |         | Sim      |                             |         | Não | Sim |
+
 ## Inimigo
+
+| Nome    | Descrição                                      | Tipo de dado | Tamanho | Not null | Check                      | Default | PK  | FK  |
+|---------|------------------------------------------------|--------------|---------|----------|----------------------------|---------|-----|-----|
+| Id_NPC  | Identificador do NPC                           | Int          |         | Sim      | Id_NPC >= 1                |         | Sim | Não |
+| Tipo    | Tipo de NPC                                    | Varchar      |     100 | Sim      | Tipo in ('Chefe', 'Comum') |         | Não | Não |
+| Chefe   | NPC é chefe ou não                             | Boolean      |         | Sim      | Chefe in (TRUE, FALSE)     |         | Não | Não |
+| Vida    | Saúde do NPC                                   | Int          |         | Sim      |                            |         | Não | Não |
+| Poder   | Poder de ataque do NPC                         | Varchar      |      30 | Sim      |                            |         | Não | Não |
+| Id_sala | Identificador da sala em que o NPC se encontra | Int          |         | Sim      |                            |         | Não | Sim |
+
 ## Chefe
 
 | Nome    | Descrição                                      | Tipo de dado | Tamanho | Not null | Check           | Default | PK  | FK  |
