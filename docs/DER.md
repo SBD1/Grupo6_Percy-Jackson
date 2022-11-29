@@ -5,7 +5,7 @@ O Diagrama Entidade Relacionamento (DER) é uma ferramenta utilizada na modelage
 ## Diagrama
 
 <p align="center">
-  <img width="500" src="images/../../images/DER_Percy_Jackson.png">
+  <img  src="images/../../images/DER_Percy_Jackson.png">
 </p>
 
 
