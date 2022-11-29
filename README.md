@@ -31,4 +31,4 @@
 
   | Conteúdo | Vídeo |
   | -------- | ----- |
-  | Módulo 1 | Link  |
+  | Módulo 1 | [Link](https://youtu.be/JaqdPm6eawQ) |
