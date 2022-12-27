@@ -1,0 +1,4 @@
+CREATE TABLE IF NOT EXISTS test (
+    nome INT PRIMARY KEY,
+    valor VARCHAR[100]
+);

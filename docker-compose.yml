@@ -1,0 +1,6 @@
+services:
+
+  db:
+    build: ./src/database/
+    ports:
+      - "5432:5432"  
