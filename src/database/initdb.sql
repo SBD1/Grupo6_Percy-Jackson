@@ -1,4 +1,6 @@
 CREATE TABLE IF NOT EXISTS test (
-    nome INT PRIMARY KEY,
-    valor VARCHAR[100]
+    test_id SERIAL PRIMARY KEY,
+    nome VARCHAR(50),
+    idade INT,
+    poder VARCHAR(50)
 );
