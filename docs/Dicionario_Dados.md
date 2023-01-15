@@ -37,6 +37,21 @@
 | Descrição     | Descrição do item                           | Varchar          |         | Sim      |              |         | Não | Não | Regenerador de vida |
 | Tipo          | Tipo de item                                | Varchar      | 20      | Sim      |              |         | Não | Não | Mágico |
 
+## Arma
+
+| Nome          | Descrição                                   | Tipo de dado | Tamanho | Not null | Check        | Default | PK  | FK  |  Exemplo |
+| ------------- | ------------------------------------------- | ------------ | ------- | -------- | ------------ | ------- | --- | --- |  ------- |
+
+## Mágico
+
+| Nome          | Descrição                                   | Tipo de dado | Tamanho | Not null | Check        | Default | PK  | FK  |  Exemplo |
+| ------------- | ------------------------------------------- | ------------ | ------- | -------- | ------------ | ------- | --- | --- |  ------- |
+
+## Código
+
+| Nome          | Descrição                                   | Tipo de dado | Tamanho | Not null | Check        | Default | PK  | FK  |  Exemplo |
+| ------------- | ------------------------------------------- | ------------ | ------- | -------- | ------------ | ------- | --- | --- |  ------- |
+
 ## Inventário
 
 | Nome          | Descrição                                   | Tipo de dado | Tamanho | Not null | Check        | Default | PK  | FK  |  Exemplo |
