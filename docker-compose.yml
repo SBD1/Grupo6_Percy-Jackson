@@ -15,11 +15,8 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: pass
       POSTGRES_DB: percyjackson
-      #PGDATA: ./db-volume
     ports:
       - "5432:5432"
-    
-    #restart: always
-  
+      
 volumes:
   postgres:
