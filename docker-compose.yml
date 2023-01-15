@@ -1,6 +1,19 @@
-services:
+# services:
 
+#   db:
+#     build: ./src/database/
+#     ports:
+#       - "5432:5432"  
+
+services:
   db:
-    build: ./src/database/
+    image: postgres
+    volumes:
+      - ./db-volume:/var/lib/postgres
+      - ./initdb.sql:/docker-entrypoint-initdb.d/initdb.sql
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: pass
+      POSTGRES_DB: percyjackson
     ports:
-      - "5432:5432"  
+      - "5432:5432"
