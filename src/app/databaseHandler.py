@@ -55,6 +55,20 @@ class DatabaseHandler:
             self.conn.close()
             self.cursor = None
             print("Closed database connection")
+    
+    def initDatabase(self):
+        try:
+            return self.cursor.execute('''CREATE TABLE IF NOT EXISTS test 
+                                (test_id SERIAL PRIMARY KEY,
+                                nome VARCHAR(50),
+                                idade INT,
+                                poder VARCHAR(50)
+            );''')
+            #self.conn.commit() 
+        
+        except:
+            print("Unable to create table!")
+        
 
     def executeStatement(self, statement, verb, size=1):
         if verb not in VALID_REST_VERBS:

@@ -6,6 +6,8 @@ import os
 db = DatabaseHandler(debug=False)
 db.connect()
 
+
+
 # Initial insert (test)
 columns = ["nome", "idade", "poder"]
 values = ["percy2", 94, "velocidade"]
