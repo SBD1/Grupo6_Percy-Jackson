@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS Nivel (
 CREATE TABLE IF NOT EXISTS Inventario (
     id_inventario INT GENERATED ALWAYS AS IDENTITY,
     tamanho_inventario INT NOT NULL,
-    momento_coleta_Item DATETIME NOT NULL,
+    momento_coleta_Item TIMESTAMPTZ NOT NULL,
     PRIMARY KEY(id_inventario)
     /*Adicionar a chave estrangeira de Item e Jogador*/
 
@@ -42,13 +42,13 @@ CREATE TABLE IF NOT EXISTS Item (
     id_item INT GENERATED ALWAYS AS IDENTITY,
     nome VARCHAR(30) NOT NULL,
     descricao VARCHAR(100) NOT NULL,
-    tipo VARCHAR(20), NOT NULL,
+    tipo VARCHAR(20) NOT NULL,
     PRIMARY KEY(id_item)
 );
 CREATE TABLE IF NOT EXISTS Sala(
     id_sala INT GENERATED ALWAYS AS IDENTITY,
     descricao VARCHAR(300) NOT NULL,
-    PRIMARY KEY(id_nivel)  
+    PRIMARY KEY(id_sala)  
     /*Adicionar a chave estrangeira de Sala*/
 );
 CREATE TABLE IF NOT EXISTS NPC(
@@ -60,7 +60,7 @@ CREATE TABLE IF NOT EXISTS Boss (
     id_boss INT GENERATED ALWAYS AS IDENTITY,
     multi_vida FLOAT NOT NULL,
     multi_ataque FLOAT NOT NULL,
-    PRIMARY KEY(id_bau)
+    PRIMARY KEY(id_boss)
      /*Adicionar a chave estrangeira de Nivel*/
 );
 CREATE TABLE IF NOT EXISTS Inimigo (
