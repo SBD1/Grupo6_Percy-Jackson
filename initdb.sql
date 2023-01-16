@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS Jogador (
 );*/
 CREATE TABLE IF NOT EXISTS Nivel (
     id_nivel INT GENERATED ALWAYS AS IDENTITY,
-    descricao VARCHAR(300)
+    descricao VARCHAR(300),
     PRIMARY KEY(id_nivel)
 );
 CREATE TABLE IF NOT EXISTS Inventario (
