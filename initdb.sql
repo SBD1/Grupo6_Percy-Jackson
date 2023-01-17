@@ -1,12 +1,15 @@
 CREATE TABLE IF NOT EXISTS Jogador (
-    id_jogador INT GENERATED ALWAYS AS IDENTITY,
+    id INT GENERATED ALWAYS AS IDENTITY,
     progresso VARCHAR(50) NOT NULL,
     vida INT NOT NULL,
     logar INT NOT NULL,
     ataque INT NOT NULL,
     defesa INT NOT NULL,
-    PRIMARY KEY(id_jogador)
-    /*Adicionar a chave estrangeira de Sala*/
+    id_sala INT,
+    PRIMARY KEY(id_jogador),
+    CONSTRAINT fk_sala 
+      FOREIGN KEY(id_sala) 
+	    REFERENCES Sala(id)        
 );
 
 /*CREATE TABLE IF NOT EXISTS chooselife (
@@ -21,34 +24,42 @@ CREATE TABLE IF NOT EXISTS Jogador (
 	    REFERENCES test(test_id)
 );*/
 CREATE TABLE IF NOT EXISTS Nivel (
-    id_nivel INT GENERATED ALWAYS AS IDENTITY,
+    id INT GENERATED ALWAYS AS IDENTITY,
     descricao VARCHAR(300),
-    PRIMARY KEY(id_nivel)
+    PRIMARY KEY(id)
 );
 CREATE TABLE IF NOT EXISTS Inventario (
-    id_inventario INT GENERATED ALWAYS AS IDENTITY,
+    id INT GENERATED ALWAYS AS IDENTITY,
     tamanho_inventario INT NOT NULL,
     momento_coleta_Item TIMESTAMPTZ NOT NULL,
-    PRIMARY KEY(id_inventario)
+    id_item INT,
+    id_jogador INT,
+    PRIMARY KEY(id),
+    CONSTRAINT fk_item
+        FOREIGN KEY(id_item)
+            REFERENCES Item(id),
+    CONSTRAINT fk_jogador
+        FOREIGN KEY(id_jogador)
+            REFERENCES Jogador(id)
     /*Adicionar a chave estrangeira de Item e Jogador*/
 
 );
 CREATE TABLE IF NOT EXISTS Bau (
-    id_bau INT GENERATED ALWAYS AS IDENTITY,
-    PRIMARY KEY(id_bau)
+    id INT GENERATED ALWAYS AS IDENTITY,
+    PRIMARY KEY(id)
      /*Adicionar a chave estrangeira de Item e Sala*/
 );
 CREATE TABLE IF NOT EXISTS Item (
-    id_item INT GENERATED ALWAYS AS IDENTITY,
+    id INT GENERATED ALWAYS AS IDENTITY,
     nome VARCHAR(30) NOT NULL,
     descricao VARCHAR(100) NOT NULL,
     tipo VARCHAR(20) NOT NULL,
-    PRIMARY KEY(id_item)
+    PRIMARY KEY(id)
 );
 CREATE TABLE IF NOT EXISTS Sala(
-    id_sala INT GENERATED ALWAYS AS IDENTITY,
+    id INT GENERATED ALWAYS AS IDENTITY,
     descricao VARCHAR(300) NOT NULL,
-    PRIMARY KEY(id_sala)  
+    PRIMARY KEY(id)  
     /*Adicionar a chave estrangeira de Sala*/
 );
 CREATE TABLE IF NOT EXISTS NPC(
@@ -57,36 +68,36 @@ CREATE TABLE IF NOT EXISTS NPC(
      /*Adicionar a chave estrangeira de Sala*/
 );
 CREATE TABLE IF NOT EXISTS Boss (
-    id_boss INT GENERATED ALWAYS AS IDENTITY,
+    id INT GENERATED ALWAYS AS IDENTITY,
     multi_vida FLOAT NOT NULL,
     multi_ataque FLOAT NOT NULL,
-    PRIMARY KEY(id_boss)
+    PRIMARY KEY(id)
      /*Adicionar a chave estrangeira de Nivel*/
 );
 CREATE TABLE IF NOT EXISTS Inimigo (
-    id_inimigo INT GENERATED ALWAYS AS IDENTITY,
+    id INT GENERATED ALWAYS AS IDENTITY,
     vida INT NOT NULL,
     ataque VARCHAR(30) NOT NULL,
     time_ataque INT NOT NULL,
-    PRIMARY KEY(id_inimigo)
+    PRIMARY KEY(id)
 );
 CREATE TABLE IF NOT EXISTS Comum (
-     id_comum INT GENERATED ALWAYS AS IDENTITY,
-    PRIMARY KEY(id_comum)
+     id INT GENERATED ALWAYS AS IDENTITY,
+    PRIMARY KEY(id)
 );
 CREATE TABLE IF NOT EXISTS Amigavel (
-    id_amigavel INT GENERATED ALWAYS AS IDENTITY,
-    PRIMARY KEY(id_amigavel)
+    id INT GENERATED ALWAYS AS IDENTITY,
+    PRIMARY KEY(id)
 );
 CREATE TABLE IF NOT EXISTS Narrador (
-    id_narrador INT GENERATED ALWAYS AS IDENTITY,
+    id INT GENERATED ALWAYS AS IDENTITY,
     fala VARCHAR(600) NOT NULL,
-    PRIMARY KEY(id_narrador)
+    PRIMARY KEY(id)
 );
 CREATE TABLE IF NOT EXISTS Amigo (
-    id_amigo INT GENERATED ALWAYS AS IDENTITY,
+    id INT GENERATED ALWAYS AS IDENTITY,
     Mult_inventario FLOAT NOT NULL,
-    PRIMARY KEY(id_amigo)
+    PRIMARY KEY(id)
 );
 CREATE TABLE IF NOT EXISTS Arma (
     /*Verificar se existe atributos em Arma*/
