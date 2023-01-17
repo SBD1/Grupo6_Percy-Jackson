@@ -25,10 +25,26 @@
 
 ## ⚡ Execução do Projeto
 
-<p> Descrição do Projeto </p>
+## Executando o Projeto
+```bash 
+# Clone o repositório
+$ git clone https://github.com/SBD1/Grupo6_Percy-Jackson.git
+
+# Instale as dependências do Requirements(necessário ter o Python instalado)
+$ pip install -r requirements.txt
+
+#Uma vez que se tenha o Docker instalado, verifique se a porta 5432 está disponível e executa o comando para rodar os containers.
+$ docker-compose up
+
+# Execute o projeto em outro terminal utilizando
+$ python3 src/app/main.py
+```
 
 ## Apresentações
 
   | Conteúdo | Vídeo |
   | -------- | ----- |
   | Módulo 1 | [Link](https://youtu.be/JaqdPm6eawQ) |
+  | Módulo 2 | [Link](https://drive.google.com/file/d/158RwuZYBB554RVlv6ljhLN3xi-iY78fm/view?usp=share_link) |
+
+  
