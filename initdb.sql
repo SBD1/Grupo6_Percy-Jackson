@@ -30,10 +30,14 @@ CREATE TABLE IF NOT EXISTS Jogador (
     ataque INT NOT NULL,
     defesa INT NOT NULL,
     id_sala INT,
+    id_nivel INT,
     PRIMARY KEY(id),
     CONSTRAINT fk_sala 
       FOREIGN KEY(id_sala) 
-	    REFERENCES Sala(id)        
+	    REFERENCES Sala(id),
+    CONSTRAINT fk_nivel
+      FOREIGN KEY(id_nivel) 
+	    REFERENCES Nivel(id)        
 );
 
 /*CREATE TABLE IF NOT EXISTS chooselife (
