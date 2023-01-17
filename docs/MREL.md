@@ -4,12 +4,8 @@ O modelo relacional é um modelo de dados representativos, adequado a ser o mode
 
 ## Diagrama
 
+### Versão Normalizada
+
 <p align="center">
-  <img  src="images/../../images/MREL.png">
+  <img  src="https://user-images.githubusercontent.com/54143767/212798038-9ab88424-4c63-4640-80b2-ac5089b215ee.png">
 </p>
-
-## Histórico de Versões
-
-| Data       | Versão | Descrição                              | Autor                |
-| ---------- | ------ | -------------------------------------- | -------------------- |
-| 28/11/2022 | `1.0`  | Desenvolvida a primeira versão do MREL | Todos os integrantes |
