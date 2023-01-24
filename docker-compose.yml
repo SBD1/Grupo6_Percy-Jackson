@@ -1,22 +1,17 @@
-# services:
-
-#   db:
-#     build: ./src/database/
-#     ports:
-#       - "5432:5432"  
+version: '3.9'
 
 services:
   db:
     image: postgres
     volumes:
       - postgres:/var/lib/postgresql/data
-      - ./initdb.sql:/docker-entrypoint-initdb.d/initdb.sql
+      - ./src/database:/docker-entrypoint-initdb.d
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: pass
       POSTGRES_DB: percyjackson
     ports:
-      - "5432:5432"
+      - "5432:5432" 
 
 volumes:
   postgres:

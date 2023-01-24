@@ -129,17 +129,17 @@ CREATE TABLE IF NOT EXISTS Amigo (
     PRIMARY KEY(id)
 );
 CREATE TABLE IF NOT EXISTS Arma (
-    nome VARCHAR(30), NOT NULL,
+    nome VARCHAR(30) NOT NULL,
     descricao VARCHAR(200) NOT NULL,
     multi_ataque FLOAT NOT NULL
 );
 CREATE TABLE IF NOT EXISTS Magico (
-    nome VARCHAR(30), NOT NULL,
+    nome VARCHAR(30) NOT NULL,
     descricao VARCHAR(200) NOT NULL,
     multi_vida FLOAT NOT NULL,
     teletransporte BOOlEAN NOT NULL
 );
 CREATE TABLE IF NOT EXISTS Codigo (
-    nome VARCHAR(30), NOT NULL,
+    nome VARCHAR(30) NOT NULL,
     descricao VARCHAR(200) NOT NULL
 );
