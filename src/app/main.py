@@ -1,88 +1,49 @@
-from databaseHandler import DatabaseHandler
-from psycopg2 import sql
+import sys
 import os
 
-#DB Connection
-db = DatabaseHandler(debug=False)
-db.connect()
+
+def clear():
+    os.system('cls') 
 
 
-# Initial insert (Nivel)
+class Main:
 
-columns = ["descricao"]
-values = ["Inicial"]
-statement = sql.SQL("""INSERT INTO public.Nivel({columns}) VALUES({values});""").format(
-    columns=sql.SQL(", ").join(sql.Identifier(col) for col in columns),
-    values=sql.SQL(", ").join(sql.Literal(val) for val in values)
-)
-db.executeStatement(statement, verb="INSERT")
+    def start(self):
+
+        print("Percy Jackson\n")
+
+        print("Bem vinde ao jogo!\n")
+
+        print('Escolha uma das opções abaixo(1-3):\n')
+
+        print('1 - Criar Novo Personagem\n' +
+              '2 - Carregar Personagem\n' +
+              '3 - Sair\n\n\n')
+
+        print('Digite a opção desejada: \n')
+
+        inp = 0
+
+        while(inp not in [1, 2, 3]):
+            inp = input('> ')
+
+            if inp == '1':
+                self.create_new_character()
+                break
+
+            if inp == '2':
+                self.load_character()
+                break
+
+            if inp == '3':
+                sys.exit()
+                break
+
+            else:
+                print('\nOpção Inválida!')
+      
 
 
-# Initial insert (Sala)
-columns = ["descricao", "id_nivel"]
-values = ["Sala Inicial", 1]
-statement = sql.SQL("""INSERT INTO public.Sala({columns}) VALUES({values});""").format(
-    columns=sql.SQL(", ").join(sql.Identifier(col) for col in columns),
-    values=sql.SQL(", ").join(sql.Literal(val) for val in values)
-)
-db.executeStatement(statement, verb="INSERT")
-
-# Initial insert (Sala)
-columns = ["descricao", "id_nivel"]
-values = ["Sala 2", 1]
-statement = sql.SQL("""INSERT INTO public.Sala({columns}) VALUES({values});""").format(
-    columns=sql.SQL(", ").join(sql.Identifier(col) for col in columns),
-    values=sql.SQL(", ").join(sql.Literal(val) for val in values)
-)
-db.executeStatement(statement, verb="INSERT")
-
-# Initial insert (Sala)
-columns = ["descricao", "id_nivel"]
-values = ["Sala 3", 1]
-statement = sql.SQL("""INSERT INTO public.Sala({columns}) VALUES({values});""").format(
-    columns=sql.SQL(", ").join(sql.Identifier(col) for col in columns),
-    values=sql.SQL(", ").join(sql.Literal(val) for val in values)
-)
-db.executeStatement(statement, verb="INSERT")
-
-# Initial insert (Jogador)
-columns = ["progresso", "vida", "logar", "ataque", "defesa", "id_sala", "id_nivel"]
-values = ["inicial", 100, 1, 10, 50, 1, 1]
-statement = sql.SQL("""INSERT INTO public.Jogador({columns}) VALUES({values});""").format(
-    columns=sql.SQL(", ").join(sql.Identifier(col) for col in columns),
-    values=sql.SQL(", ").join(sql.Literal(val) for val in values)
-)
-# Executing insert statement
-db.executeStatement(statement, verb="INSERT")
-
-# Executing select statement
-
-'''
-statement = sql.SQL("""SELECT * FROM public.Nivel, public.Sala, public.Jogador""")
-response = db.executeStatement(statement, verb="SELECT", size=2000)
-'''
-
-statement2 = sql.SQL("""SELECT * FROM public.Nivel""")
-response2 = db.executeStatement(statement2, verb="SELECT", size=2000)
-statement3 = sql.SQL("""SELECT * FROM public.Sala""")
-response3 = db.executeStatement(statement3, verb="SELECT", size=2000)
-statement4 = sql.SQL("""SELECT * FROM public.Jogador""")
-response4 = db.executeStatement(statement4, verb="SELECT", size=2000)
-
-#print(response2)
-#print(response3)
-#print(response4)
-
-print('Olá jogador! Você vê as seguintes salas a sua frente:\n\n')
-print(response3)
-
-choice = -1;
-
-while(choice != 0):
-    id = input('\n\n Digite o id da sala para a qual você deseja ir (Ou digite 0 para sair): ')
-    if(int(id) == 0): 
-        break
-    print('Indo para a sala [', id, ']')
-   
-    statement = sql.SQL("""UPDATE TABLE public.Jogador SET id_sala = {id_destino} WHERE jogador(id) IS 1;""").format(
-        id_destino=sql.Literal(int(id)))
+if __name__ == '__main__':
+    game = Main()
+    game.start()
