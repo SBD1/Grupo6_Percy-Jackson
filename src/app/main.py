@@ -19,8 +19,6 @@ class Main:
         print("                    __/ |                                        ")
         print("                   |___/                                       \n")
 
-        print("                         Bem vinde ao jogo!\n")
-
         print('Escolha uma das opções abaixo(1-3):\n')
 
         print('1 - Criar Novo Personagem\n' +
