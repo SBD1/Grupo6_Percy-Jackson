@@ -1,10 +1,11 @@
 
 import sys
-sys.path.append('/src/app')
+from psycopg2 import sql
+
+# sys.path.append('/src/app')
 
 from app.users import User
 from app.databaseHandler import DatabaseHandler
-from psycopg2 import sql
 
 
 
@@ -41,4 +42,5 @@ class UserRepository:
 
         result = db.executeStatement(statement, verb='SELECT')
 
-        return User(result[0], result[1], result[2],)
+        # return User(result[0], result[1], result[2],)
+        return True

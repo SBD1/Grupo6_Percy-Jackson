@@ -1,8 +1,7 @@
 import sys
 import os
 
-sys.path.append('/src/app')
-import repositories.user_repository.UserRepository
+from repositories.user_repository import UserRepository
 
 def clear():
     os.system('cls')
@@ -44,6 +43,7 @@ class Main:
 
             if inp == '2':
                 self.load_character()
+                print('load character in the future...')
                 break
 
             if inp == '3':

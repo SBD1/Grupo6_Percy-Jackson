@@ -1,11 +1,11 @@
 import psycopg2
 import psycopg2.extras
-import configFunctions
-from constants import VALID_REST_VERBS
+import app.configFunctions as configFunctions
+from app.constants import VALID_REST_VERBS
 
 
 class DatabaseHandler:
-    def __init__(self, filename="config.ini", section="database", debug=False) -> None:
+    def __init__(self, filename="./app/config.ini", section="database", debug=False) -> None:
         # Database related operators
         self.conn = None  # Database connection
         self.cursor = None  # Cursor for transactions when connected
