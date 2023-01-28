@@ -20,24 +20,6 @@ db.executeStatement(statement, verb="INSERT")
 
 # Initial insert (Sala)
 columns = ["nome", "descricao", "id_nivel"]
-values = ["oi", "Sala Inicial", 1]
-statement = sql.SQL("""INSERT INTO public.Sala({columns}) VALUES({values});""").format(
-    columns=sql.SQL(", ").join(sql.Identifier(col) for col in columns),
-    values=sql.SQL(", ").join(sql.Literal(val) for val in values)
-)
-db.executeStatement(statement, verb="INSERT")
-
-# Initial insert (Sala)
-columns = ["nome", "descricao", "id_nivel"]
-values = ["ei", "Sala 2", 1]
-statement = sql.SQL("""INSERT INTO public.Sala({columns}) VALUES({values});""").format(
-    columns=sql.SQL(", ").join(sql.Identifier(col) for col in columns),
-    values=sql.SQL(", ").join(sql.Literal(val) for val in values)
-)
-db.executeStatement(statement, verb="INSERT")
-
-# Initial insert (Sala)
-columns = ["nome", "descricao", "id_nivel"]
 values = ["ola", "Sala 3", 1]
 statement = sql.SQL("""INSERT INTO public.Sala({columns}) VALUES({values});""").format(
     columns=sql.SQL(", ").join(sql.Identifier(col) for col in columns),
@@ -46,9 +28,9 @@ statement = sql.SQL("""INSERT INTO public.Sala({columns}) VALUES({values});""").
 db.executeStatement(statement, verb="INSERT")
 
 # Initial insert (Jogador)
-columns = ["nome", "vida", "progresso", "logar",
+columns = ["nome", "vida", "progresso",
            "ataque", "defesa", "id_sala", "id_nivel"]
-values = ["Savio", 100, "50%", 10, 50, 1, 1, 1]
+values = ["Savio", 100, "50%", 50, 1, 1, 1]
 statement = sql.SQL("""INSERT INTO public.Jogador({columns}) VALUES({values});""").format(
     columns=sql.SQL(", ").join(sql.Identifier(col) for col in columns),
     values=sql.SQL(", ").join(sql.Literal(val) for val in values)
@@ -63,15 +45,15 @@ statement = sql.SQL("""SELECT * FROM public.Nivel, public.Sala, public.Jogador""
 response = db.executeStatement(statement, verb="SELECT", size=2000)
 '''
 
-statement2 = sql.SQL("""SELECT * FROM public.Nivel""")
-response2 = db.executeStatement(statement2, verb="SELECT", size=2000)
-statement3 = sql.SQL("""SELECT * FROM public.Sala""")
-response3 = db.executeStatement(statement3, verb="SELECT", size=2000)
-statement4 = sql.SQL("""SELECT * FROM public.Jogador""")
-response4 = db.executeStatement(statement4, verb="SELECT", size=2000)
+select_nivel = sql.SQL("""SELECT * FROM public.Nivel""")
+niveis = db.executeStatement(select_nivel, verb="SELECT", size=2000)
+select_salas = sql.SQL("""SELECT * FROM public.Sala""")
+salas = db.executeStatement(select_salas, verb="SELECT", size=2000)
+select_jogadores = sql.SQL("""SELECT * FROM public.Jogador""")
+jogadores = db.executeStatement(select_jogadores, verb="SELECT", size=2000)
 
 print('Olá jogador! Você vê as seguintes salas a sua frente:\n\n')
-print(response3)
+print(salas)
 
 choice = -1
 

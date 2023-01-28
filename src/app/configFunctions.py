@@ -1,6 +1,6 @@
 from configparser import ConfigParser
 from typing import Dict
-
+import os
 
 def getConfigParameters(section, filename="config.ini", debug=False) -> Dict:
     # Create config data dictionary
@@ -15,8 +15,8 @@ def getConfigParameters(section, filename="config.ini", debug=False) -> Dict:
         filename = filename.split(".")[0] + "-dev." + filename.split(".")[-1]  # This build a filename-dev.ini name from the filename
 
     # Read config file
-    parser.read(filename)
-
+    a = parser.read(filename)
+    
     # Get section and extract parameters
     if parser.has_section(section):
         parametersList = parser.items(section)

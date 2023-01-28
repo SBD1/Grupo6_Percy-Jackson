@@ -24,9 +24,9 @@ CREATE TABLE IF NOT EXISTS Sala(
 );
 CREATE TABLE IF NOT EXISTS Jogador (
     id INT GENERATED ALWAYS AS IDENTITY,
-    progresso VARCHAR(50) NOT NULL,
+    nome VARCHAR(50) NOT NULL,
     vida INT NOT NULL,
-    logar INT NOT NULL,
+    progresso VARCHAR(50) NOT NULL,
     ataque INT NOT NULL,
     defesa INT NOT NULL,
     id_sala INT,

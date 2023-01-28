@@ -1,6 +1,7 @@
 import sys
 import os
 
+from repositories.user_repository import UserRepository
 
 def clear():
     os.system('cls')
@@ -10,6 +11,8 @@ class Main:
 
     def start(self):
 
+        print(os.path.abspath('user_repository.py'))
+
         print("______                       ___            _                    ")
         print("| ___ \                     |_  |          | |                   ")
         print("| |_/ /__ _ __ ___ _   _      | | __ _  ___| | _____  ___  _ __  ")
@@ -18,8 +21,6 @@ class Main:
         print("\_|  \___|_|  \___|\__, | \____/ \__,_|\___|_|\_\___/\___/|_| |_|")
         print("                    __/ |                                        ")
         print("                   |___/                                       \n")
-
-        print("                         Bem vinde ao jogo!\n")
 
         print('Escolha uma das opções abaixo(1-3):\n')
 
@@ -35,11 +36,14 @@ class Main:
             inp = input('> ')
 
             if inp == '1':
-                self.create_new_character()
+                nome = input("Digite seu nome: ")
+                user = UserRepository()
+                user.save_user(nome)
                 break
 
             if inp == '2':
                 self.load_character()
+                print('load character in the future...')
                 break
 
             if inp == '3':
