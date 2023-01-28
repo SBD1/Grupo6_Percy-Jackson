@@ -1,5 +1,6 @@
 import sys
 import os
+from user_repository import UserRepository
 
 
 def clear():
@@ -33,7 +34,9 @@ class Main:
             inp = input('> ')
 
             if inp == '1':
-                self.create_new_character()
+                nome = input("Digite seu nome: ")
+                user = UserRepository()
+                user.save_user(nome)
                 break
 
             if inp == '2':
