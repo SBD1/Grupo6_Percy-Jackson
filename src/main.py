@@ -1,7 +1,8 @@
 import sys
 import os
-from user_repository import UserRepository
 
+sys.path.append('/src/app')
+import repositories.user_repository.UserRepository
 
 def clear():
     os.system('cls')
@@ -10,6 +11,8 @@ def clear():
 class Main:
 
     def start(self):
+
+        print(os.path.abspath('user_repository.py'))
 
         print("______                       ___            _                    ")
         print("| ___ \                     |_  |          | |                   ")
