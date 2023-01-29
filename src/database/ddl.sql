@@ -3,7 +3,6 @@ CREATE TABLE IF NOT EXISTS Nivel (
     descricao VARCHAR(300),
     PRIMARY KEY(id)
 );
-
 CREATE TABLE IF NOT EXISTS Item (
     id INT GENERATED ALWAYS AS IDENTITY,
     nome VARCHAR(30) NOT NULL,
@@ -11,16 +10,14 @@ CREATE TABLE IF NOT EXISTS Item (
     tipo VARCHAR(20) NOT NULL,
     PRIMARY KEY(id)
 );
-
 CREATE TABLE IF NOT EXISTS Sala(
     id INT GENERATED ALWAYS AS IDENTITY,
     nome VARCHAR(50) NOT NULL,
     descricao VARCHAR(300) NOT NULL,
     id_nivel INT,
+    destinos INT [10],
     PRIMARY KEY(id),
-    CONSTRAINT fk_nivel
-      FOREIGN KEY(id_nivel) 
-	    REFERENCES Nivel(id)
+    CONSTRAINT fk_nivel FOREIGN KEY(id_nivel) REFERENCES Nivel(id)
 );
 CREATE TABLE IF NOT EXISTS Jogador (
     id INT GENERATED ALWAYS AS IDENTITY,
@@ -32,15 +29,9 @@ CREATE TABLE IF NOT EXISTS Jogador (
     id_sala INT,
     id_nivel INT,
     PRIMARY KEY(id),
-    CONSTRAINT fk_sala 
-      FOREIGN KEY(id_sala) 
-	    REFERENCES Sala(id),
-    CONSTRAINT fk_nivel
-      FOREIGN KEY(id_nivel) 
-	    REFERENCES Nivel(id)        
+    CONSTRAINT fk_sala FOREIGN KEY(id_sala) REFERENCES Sala(id),
+    CONSTRAINT fk_nivel FOREIGN KEY(id_nivel) REFERENCES Nivel(id)
 );
-
-
 CREATE TABLE IF NOT EXISTS Inventario (
     id INT GENERATED ALWAYS AS IDENTITY,
     tamanho_inventario INT NOT NULL,
@@ -48,38 +39,23 @@ CREATE TABLE IF NOT EXISTS Inventario (
     id_item INT,
     id_jogador INT,
     PRIMARY KEY(id),
-    CONSTRAINT fk_item
-        FOREIGN KEY(id_item)
-            REFERENCES Item(id),
-    CONSTRAINT fk_jogador
-        FOREIGN KEY(id_jogador)
-            REFERENCES Jogador(id)
-    
-
+    CONSTRAINT fk_item FOREIGN KEY(id_item) REFERENCES Item(id),
+    CONSTRAINT fk_jogador FOREIGN KEY(id_jogador) REFERENCES Jogador(id)
 );
 CREATE TABLE IF NOT EXISTS Bau (
     id INT GENERATED ALWAYS AS IDENTITY,
     id_item INT,
     id_sala INT,
     PRIMARY KEY(id),
-    CONSTRAINT fk_item
-        FOREIGN KEY(id_item)
-            REFERENCES Item(id),
-    CONSTRAINT fk_sala 
-      FOREIGN KEY(id_sala) 
-	    REFERENCES Sala(id)
-     
+    CONSTRAINT fk_item FOREIGN KEY(id_item) REFERENCES Item(id),
+    CONSTRAINT fk_sala FOREIGN KEY(id_sala) REFERENCES Sala(id)
 );
-
-
 CREATE TABLE IF NOT EXISTS NPC(
     id INT GENERATED ALWAYS AS IDENTITY,
     nome VARCHAR(50) NOT NULL,
     id_sala INT,
     PRIMARY KEY(id),
-    CONSTRAINT fk_sala 
-      FOREIGN KEY(id_sala) 
-	    REFERENCES Sala(id)
+    CONSTRAINT fk_sala FOREIGN KEY(id_sala) REFERENCES Sala(id)
 );
 CREATE TABLE IF NOT EXISTS Boss (
     id INT GENERATED ALWAYS AS IDENTITY,
@@ -87,10 +63,8 @@ CREATE TABLE IF NOT EXISTS Boss (
     multi_ataque FLOAT NOT NULL,
     id_nivel INT,
     PRIMARY KEY(id),
-    CONSTRAINT fk_nivel
-      FOREIGN KEY(id_nivel) 
-	    REFERENCES Nivel(id)
-     /*Adicionar a chave estrangeira de Nivel*/
+    CONSTRAINT fk_nivel FOREIGN KEY(id_nivel) REFERENCES Nivel(id)
+    /*Adicionar a chave estrangeira de Nivel*/
 );
 CREATE TABLE IF NOT EXISTS Inimigo (
     id INT GENERATED ALWAYS AS IDENTITY,
@@ -100,7 +74,7 @@ CREATE TABLE IF NOT EXISTS Inimigo (
     PRIMARY KEY(id)
 );
 CREATE TABLE IF NOT EXISTS Comum (
-     id INT GENERATED ALWAYS AS IDENTITY,
+    id INT GENERATED ALWAYS AS IDENTITY,
     PRIMARY KEY(id)
 );
 CREATE TABLE IF NOT EXISTS Amigavel (
@@ -111,19 +85,15 @@ CREATE TABLE IF NOT EXISTS Narrador (
     id INT GENERATED ALWAYS AS IDENTITY,
     fala VARCHAR(600) NOT NULL,
     id_sala INT,
-     PRIMARY KEY(id),
-    CONSTRAINT fk_sala 
-      FOREIGN KEY(id_sala) 
-	    REFERENCES Sala(id)
+    PRIMARY KEY(id),
+    CONSTRAINT fk_sala FOREIGN KEY(id_sala) REFERENCES Sala(id)
 );
 CREATE TABLE IF NOT EXISTS Amigo (
     id INT GENERATED ALWAYS AS IDENTITY,
     Mult_inventario FLOAT NOT NULL,
     id_jogador INT,
     PRIMARY KEY(id),
-    CONSTRAINT fk_jogador
-        FOREIGN KEY(id_jogador)
-            REFERENCES Jogador(id)
+    CONSTRAINT fk_jogador FOREIGN KEY(id_jogador) REFERENCES Jogador(id)
 );
 CREATE TABLE IF NOT EXISTS Arma (
     nome VARCHAR(30) NOT NULL,
