@@ -11,8 +11,6 @@ class Main:
 
     def start(self):
 
-        print(os.path.abspath('user_repository.py'))
-
         print("______                       ___            _                    ")
         print("| ___ \                     |_  |          | |                   ")
         print("| |_/ /__ _ __ ___ _   _      | | __ _  ___| | _____  ___  _ __  ")
@@ -42,8 +40,9 @@ class Main:
                 break
 
             if inp == '2':
-                self.load_character()
-                print('load character in the future...')
+                nome = input("Digite seu nome: ")
+                user = UserRepository()
+                user.load_character(nome)
                 break
 
             if inp == '3':
