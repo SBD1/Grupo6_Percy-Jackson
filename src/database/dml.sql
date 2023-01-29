@@ -12,20 +12,20 @@ insert into Item(nome, descricao, tipo) values ('Arco Lunar', 'Poder de dano de 
 insert into Item(nome, descricao, tipo) values ('Raio Mistico ', 'Poder de dano de 10 de HP na batala', 'Arma');
 
 --- Sala
-insert into Sala(nome, descricao, id_nivel) values ('Rick Riordan', 'Sala com monstros e sem item', '1');
-insert into Sala(nome, descricao, id_nivel) values ('Greek Gods', 'Sala com monstros com alguns itens', '1');
-insert into Sala(nome, descricao, id_nivel) values ('Olipiano', 'Sala com monstros e com todos os itens', '1');
-insert into Sala(nome, descricao, id_nivel) values ('Greek Heroes', 'Sala vitoriosa', '1');
+insert into Sala(nome, descricao, id_nivel, destinos) values ('Rick Riordan', 'Sala com monstros e sem item', '1', ARRAY [2, 3]);
+insert into Sala(nome, descricao, id_nivel, destinos) values ('Greek Gods', 'Sala com monstros com alguns itens', '1', ARRAY [2, 3]);
+insert into Sala(nome, descricao, id_nivel, destinos) values ('Olipiano', 'Sala com monstros e com todos os itens', '1', ARRAY [2, 3]);
+insert into Sala(nome, descricao, id_nivel, destinos) values ('Greek Heroes', 'Sala vitoriosa', '1', ARRAY [2, 3]);
 
-insert into Sala(nome, descricao, id_nivel) values ('Rick Riordan', 'Sala com monstros e sem item', '2');
-insert into Sala(nome, descricao, id_nivel) values ('Greek Gods', 'Sala com monstros com alguns itens', '2');
-insert into Sala(nome, descricao, id_nivel) values ('Olipiano', 'Sala com monstros e com todos os itens', '2');
-insert into Sala(nome, descricao, id_nivel) values ('Greek Heroes', 'Sala vitoriosa', '2');
+insert into Sala(nome, descricao, id_nivel, destinos) values ('Rick Riordan', 'Sala com monstros e sem item', '2', ARRAY [2, 3]);
+insert into Sala(nome, descricao, id_nivel, destinos) values ('Greek Gods', 'Sala com monstros com alguns itens', '2', ARRAY [2, 3]);
+insert into Sala(nome, descricao, id_nivel, destinos) values ('Olipiano', 'Sala com monstros e com todos os itens', '2', ARRAY [2, 3]);
+insert into Sala(nome, descricao, id_nivel, destinos) values ('Greek Heroes', 'Sala vitoriosa', '2', ARRAY [2, 3]);
 
-insert into Sala(nome, descricao, id_nivel) values ('Rick Riordan', 'Sala com monstros e sem item', '3');
-insert into Sala(nome, descricao, id_nivel) values ('Greek Gods', 'Sala com monstros com alguns itens', '3');
-insert into Sala(nome, descricao, id_nivel) values ('Olipiano', 'Sala com monstros e com todos os itens', '3');
-insert into Sala(nome, descricao, id_nivel) values ('Greek Heroes', 'Sala vitoriosa', '3');
+insert into Sala(nome, descricao, id_nivel, destinos) values ('Rick Riordan', 'Sala com monstros e sem item', '3', ARRAY [2, 3]);
+insert into Sala(nome, descricao, id_nivel, destinos) values ('Greek Gods', 'Sala com monstros com alguns itens', '3', ARRAY [2, 3]);
+insert into Sala(nome, descricao, id_nivel, destinos) values ('Olipiano', 'Sala com monstros e com todos os itens', '3', ARRAY [2, 3]);
+insert into Sala(nome, descricao, id_nivel, destinos) values ('Greek Heroes', 'Sala vitoriosa', '3', ARRAY [2, 3]);
 
 /* --- Jogador
 insert into Jogador(progresso, vida, logar, ataque, defesa, id_sala, id_nivel) values();
