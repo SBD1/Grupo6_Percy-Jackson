@@ -1,7 +1,8 @@
 import sys
 import os
 
-from repositories.user_repository import UserRepository
+from typing import Optional
+from service.user_service import UserService
 
 def clear():
     os.system('cls')
@@ -9,6 +10,10 @@ def clear():
 
 class Main:
 
+    def __init__(self):
+        self.userService = UserService()
+        self.activeUser = None
+        
     def start(self):
 
         print("______                       ___            _                    ")
@@ -34,16 +39,13 @@ class Main:
             inp = input('> ')
 
             if inp == '1':
-                nome = input("Digite seu nome: ")
-                user = UserRepository()
-                user.save_user(nome)
-                break
+                self.activeUser = self.userService.create()
+                self.play()
+                
 
             if inp == '2':
-                nome = input("Digite seu nome: ")
-                user = UserRepository()
-                user.load_character(nome)
-                break
+                self.activeUser = self.userService.login()
+                self.play()
 
             if inp == '3':
                 sys.exit()
@@ -53,6 +55,12 @@ class Main:
                 print('\nOpção Inválida!')
 
 
+    def play(self) -> Optional[bool]:
+        print(f'Login bem-sucedido no personagem {self.activeUser}')
+        exit = input('Digite qualquer coisa para sair: ')
+        if exit is not None:
+            return False
+    
 if __name__ == '__main__':
     game = Main()
     game.start()
