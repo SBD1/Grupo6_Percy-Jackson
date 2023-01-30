@@ -13,14 +13,17 @@ class SalaRepository:
         with self.db.connection as conn:
             with conn.cursor() as cursor:
                 cursor.execute(
-                    "SELECT id_sala FROM public.Jogador WHERE id = %s",
-                    [user.id]
+                    "SELECT id, nome, descricao, id_nivel, destinos FROM public.Sala WHERE id = %s",
+                    [user.id_sala]
                         )
-                result = cursor.fetchall()
+                result = cursor.fetchone()
+
+        print(result)
+        salaAtual = Sala(*result)
             
-        return result[0][0]
+        return salaAtual
     
-    def findDestinos(self, id_sala) -> list[Sala]: 
+    ''' def findDestinos(self, id_sala) -> list[Sala]: 
         with self.db.connection as conn:
             with conn.cursor() as cursor:
                 cursor.execute(
@@ -31,6 +34,6 @@ class SalaRepository:
             
        # result1 = Sala(*row) for row in result
 
-        sala = Sala(result)
+        print(result)
             
-        return sala.destinos
+        return result[0][0] '''

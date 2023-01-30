@@ -20,11 +20,7 @@ class SalaService:
         
         salaAtual = self.salaRepository.salaAtual(user)
 
-        print(salaAtual)
+        
 
-        destinosDisponiveis = self.salaRepository.findDestinos(salaAtual)
-
-        print(destinosDisponiveis)
-
-        return destinosDisponiveis
+        return salaAtual.destinos
 
