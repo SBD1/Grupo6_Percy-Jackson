@@ -1,4 +1,3 @@
-
 from typing import Optional
 
 from database.database_handler import DatabaseHandler
