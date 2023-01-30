@@ -41,17 +41,17 @@ insert into Inventario(tamanho_inventario, momento_coleta_Item, id_item, id_joga
 insert into Bau(id_item, id_sala) values();
  */
 --- NPC
-insert into NPC(nome, id_sala) values('Percy', '1');
-insert into NPC(nome, id_sala) values('Grover', '1');
-insert into NPC(nome, id_sala) values('Chiron', '1');
+insert into NPC(nome,fala, id_sala) values('Percy','', '1');
+insert into NPC(nome,fala, id_sala) values('Grover','', '1');
+insert into NPC(nome,fala, id_sala) values('Chiron','', '1');
 
-insert into NPC(nome, id_sala) values('Poseidon', '2');
-insert into NPC(nome, id_sala) values('Dyonisos', '2');
-insert into NPC(nome, id_sala) values('Hera', '2');
+insert into NPC(nome,fala, id_sala) values('Poseidon','', '2');
+insert into NPC(nome,fala, id_sala) values('Dyonisos','', '2');
+insert into NPC(nome,fala, id_sala) values('Hera','', '2');
 
-insert into NPC(nome, id_sala) values('Zeus', '3');
-insert into NPC(nome, id_sala) values('Athena', '3');
-insert into NPC(nome, id_sala) values('Sally', '3');
+insert into NPC(nome,fala, id_sala) values('Zeus','', '3');
+insert into NPC(nome,fala, id_sala) values('Athena','', '3');
+insert into NPC(nome,fala, id_sala) values('Sally','', '3');
 
 
 /* --- Boss
