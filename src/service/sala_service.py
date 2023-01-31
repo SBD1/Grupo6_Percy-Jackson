@@ -12,13 +12,17 @@ class SalaService:
         self.salaRepository = SalaRepository()
     
     def mover(self, user: User) -> Optional[Sala]:
-        inp = input("Você possui as seguintes opções:\n" +
-                "Direita - D\n" +
-                "Esquerda - E\n" +
-                "Frente - F\n" +
-                "Atrás - A\n")
         
         salaAtual = self.salaRepository.salaAtual(user)
+        
+        inp = input("Você possui as seguintes opções:\n" +
+                "D - Direita: Sala " + str(salaAtual.destinos[0]) + "\n" +
+                "E - Esquerda: Sala " + str(salaAtual.destinos[1]) + "\n" +
+                "F - Frente: Sala " + str(salaAtual.destinos[2]) + "\n" +
+                "A - Atrás: Sala " + str(salaAtual.destinos[3]) + "\n")
+        
+
+
 
         
 

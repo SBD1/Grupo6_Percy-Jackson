@@ -10,12 +10,16 @@ CREATE TABLE IF NOT EXISTS Item (
     tipo VARCHAR(20) NOT NULL,
     PRIMARY KEY(id)
 );
+
+/* A variavel destinos armazena as ligações que uma sala tem com a outra no formato
+    direita, esquerda, frente, atrás, reespectivamente nas posições do vetor*/
+
 CREATE TABLE IF NOT EXISTS Sala(
     id INT GENERATED ALWAYS AS IDENTITY,
     nome VARCHAR(50) NOT NULL,
     descricao VARCHAR(300) NOT NULL,
     id_nivel INT,
-    destinos INT [10],
+    destinos INT [4],
     PRIMARY KEY(id),
     CONSTRAINT fk_nivel FOREIGN KEY(id_nivel) REFERENCES Nivel(id)
 );

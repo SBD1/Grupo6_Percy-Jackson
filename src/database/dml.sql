@@ -12,23 +12,24 @@ insert into Item(nome, descricao, tipo) values ('Arco Lunar', 'Poder de dano de 
 insert into Item(nome, descricao, tipo) values ('Raio Mistico ', 'Poder de dano de 10 de HP na batala', 'Arma');
 
 --- Sala
-insert into Sala(nome, descricao, id_nivel, destinos) values ('1', 'Sala com monstros e sem item', '1', ARRAY [2, 3]);
-insert into Sala(nome, descricao, id_nivel, destinos) values ('2', 'Sala com monstros com alguns itens', '1', ARRAY [2, 3]);
-insert into Sala(nome, descricao, id_nivel, destinos) values ('3', 'Sala com monstros e com todos os itens', '1', ARRAY [2, 3]);
-insert into Sala(nome, descricao, id_nivel, destinos) values ('4', 'Sala vitoriosa', '1', ARRAY [2, 3]);
-insert into Sala(nome, descricao, id_nivel, destinos) values ('5', 'Sala vitoriosa', '1', ARRAY [2, 3]);
+insert into Sala(nome, descricao, id_nivel, destinos) values ('1', 'Sala com monstros e sem item', '1', ARRAY [2, 0, 4, 0]);
+insert into Sala(nome, descricao, id_nivel, destinos) values ('2', 'Sala com monstros com alguns itens', '1', ARRAY [3, 1, 5, 0]);
+insert into Sala(nome, descricao, id_nivel, destinos) values ('3', 'Sala com monstros e com todos os itens', '1', ARRAY [0, 2, 6, 0]);
+insert into Sala(nome, descricao, id_nivel, destinos) values ('4', 'Sala vitoriosa', '1', ARRAY [5, 0, 7, 1]);
+insert into Sala(nome, descricao, id_nivel, destinos) values ('5', 'Sala vitoriosa', '1', ARRAY [6, 4, 8, 2]);
+insert into Sala(nome, descricao, id_nivel, destinos) values ('6', 'Sala com monstros e sem item', '2', ARRAY [0, 5, 9, 3]);
+insert into Sala(nome, descricao, id_nivel, destinos) values ('7', 'Sala com monstros com alguns itens', '2', ARRAY [8, 0, 0, 4]);
+insert into Sala(nome, descricao, id_nivel, destinos) values ('8', 'Sala com monstros e com todos os itens', '2', ARRAY [9, 7, 0, 5]);
+insert into Sala(nome, descricao, id_nivel, destinos) values ('9', 'Sala vitoriosa', '2', ARRAY [0, 8, 0, 6]);
 
-insert into Sala(nome, descricao, id_nivel, destinos) values ('6', 'Sala com monstros e sem item', '2', ARRAY [2, 3]);
-insert into Sala(nome, descricao, id_nivel, destinos) values ('7', 'Sala com monstros com alguns itens', '2', ARRAY [2, 3]);
-insert into Sala(nome, descricao, id_nivel, destinos) values ('8', 'Sala com monstros e com todos os itens', '2', ARRAY [2, 3]);
-insert into Sala(nome, descricao, id_nivel, destinos) values ('9', 'Sala vitoriosa', '2', ARRAY [2, 3]);
-insert into Sala(nome, descricao, id_nivel, destinos) values ('10', 'Sala vitoriosa', '2', ARRAY [2, 3]);
-
+/* insert into Sala(nome, descricao, id_nivel, destinos) values ('10', 'Sala vitoriosa', '2', ARRAY [2, 3]);
 insert into Sala(nome, descricao, id_nivel, destinos) values ('11', 'Sala com monstros e sem item', '3', ARRAY [2, 3]);
 insert into Sala(nome, descricao, id_nivel, destinos) values ('12', 'Sala com monstros com alguns itens', '3', ARRAY [2, 3]);
 insert into Sala(nome, descricao, id_nivel, destinos) values ('13', 'Sala com monstros e com todos os itens', '3', ARRAY [2, 3]);
 insert into Sala(nome, descricao, id_nivel, destinos) values ('14', 'Sala vitoriosa', '3', ARRAY [2, 3]);
 insert into Sala(nome, descricao, id_nivel, destinos) values ('15', 'Sala vitoriosa', '3', ARRAY [2, 3]);
+*/
+
 
 /* --- Jogador
 insert into Jogador(progresso, vida, logar, ataque, defesa, id_sala, id_nivel) values();
