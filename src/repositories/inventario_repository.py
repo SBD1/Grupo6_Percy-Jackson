@@ -4,19 +4,11 @@ from database.database_handler import DatabaseHandler
 from model.inventario import Inventario
 
 
-class UserRepository:
+class InventarioRepository:
     def __init__(self) -> None:
         self.db = DatabaseHandler()
 
-    def saveUser(self, user: Inventario) -> None:
-        with self.db.connection as conn:
-            with conn.cursor() as cursor:
-                cursor.execute(
-                    "INSERT INTO public.Inventario(tamanho_inventario, momento_coleta_Item, id_item, id_jogador) VALUES(%s, %s, %s, %s)",
-                    [user.tamanho_inventario, user.momento_coleta_Item, user.id_item, user.id_jogador]
-                )
-
-    def updateUser(self, user: Inventario) -> None:
+    def updateInvetario(self, user: Inventario) -> None:
         assert user.id is not None
         with self.db.connection as conn:
             with conn.cursor() as cursor:
