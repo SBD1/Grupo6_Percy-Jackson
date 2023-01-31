@@ -23,17 +23,11 @@ class SalaRepository:
             
         return salaAtual
     
-    ''' def findDestinos(self, id_sala) -> list[Sala]: 
+    def updateSala(self, user: User, opcao: int) -> None:
+        assert user.id is not None
         with self.db.connection as conn:
             with conn.cursor() as cursor:
                 cursor.execute(
-                    "SELECT destinos FROM public.Sala WHERE id = %s",
-                    [id_sala]
-                        )
-                result = cursor.fetchall()
-            
-       # result1 = Sala(*row) for row in result
-
-        print(result)
-            
-        return result[0][0] '''
+                     "UPDATE INTO public.Jogador(nome, vida, progresso, ataque, defesa, id_sala, id_nivel) VALUES(%s, %s, %s, %s, %s, %s, %s)",
+                    [user.id_sala]  
+                 )

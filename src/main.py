@@ -13,9 +13,9 @@ class Main:
 
     def __init__(self):
         self.userService = UserService()
-        self.activeUser = None
+        # self.activeUser = None
         self.salaService = SalaService()
-        self.salaAtual = None
+
         
     def start(self):
 
@@ -68,7 +68,8 @@ class Main:
             inp = input('> ')
 
             if inp == '1':
-                self.salaService = self.salaService.mover(self.activeUser)
+                if self.activeUser != None:
+                    self.salaService.mover(self.activeUser)
                 
             else:
                 print('\nOpção Inválida!')

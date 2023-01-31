@@ -71,10 +71,10 @@ class UserRepository:
         with self.db.connection as conn:
             with conn.cursor() as cursor:
                 cursor.execute(
-                    "SELECT nome, vida, progresso, ataque, defesa, id_sala, id_nivel, id FROM public.Jogador"
+                    "SELECT nome, vida, progresso, ataque, defesa, id_sala, id_nivel, id FROM public.Jogador " 
                     )
                 result = cursor.fetchall()
         
         users = [User(*row) for row in result]
         
-        return users    
+        return users

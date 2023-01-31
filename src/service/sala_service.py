@@ -11,20 +11,25 @@ class SalaService:
     def __init__(self):
         self.salaRepository = SalaRepository()
     
-    def mover(self, user: User) -> Optional[Sala]:
+    def mover(self, user: User) -> Optional[User]:
         
         salaAtual = self.salaRepository.salaAtual(user)
         
         inp = input("Você possui as seguintes opções:\n" +
-                "D - Direita: Sala " + str(salaAtual.destinos[0]) + "\n" +
-                "E - Esquerda: Sala " + str(salaAtual.destinos[1]) + "\n" +
-                "F - Frente: Sala " + str(salaAtual.destinos[2]) + "\n" +
-                "A - Atrás: Sala " + str(salaAtual.destinos[3]) + "\n")
+                "L - Leste: Sala " + str(salaAtual.destinos[0]) + "\n" +
+                "O - Oeste: Sala " + str(salaAtual.destinos[1]) + "\n" +
+                "N - Norte: Sala " + str(salaAtual.destinos[2]) + "\n" +
+                "S - Sul: Sala " + str(salaAtual.destinos[3]) + "\n"
+                "Digite sua escolha: ")
         
+        if inp == 'l' or inp == 'L':
+            self.salaRepository.updateSala(user, salaAtual.destinos[0])
+        elif inp == 'o' or inp == 'O':
+            self.salaRepository.updateSala(user, salaAtual.destinos[1])
+        elif inp == 'n' or inp == 'N':
+            self.salaRepository.updateSala(user, salaAtual.destinos[2])
+        elif inp == 'o' or inp == 'O':
+            self.salaRepository.updateSala(user, salaAtual.destinos[3])
 
-
-
-        
-
-        return salaAtual.destinos
+        print(user)
 
