@@ -4,19 +4,11 @@ from database.database_handler import DatabaseHandler
 from model.items import Item
 
 
-class UserRepository:
+class ItemRepository:
     def __init__(self) -> None:
         self.db = DatabaseHandler()
 
-    def saveUser(self, user: Item) -> None:
-        with self.db.connection as conn:
-            with conn.cursor() as cursor:
-                cursor.execute(
-                    "INSERT INTO public.Item(nome, descricao, tipo) VALUES(%s, %s, %s)",
-                    [user.nome, user.descricao, user.tipo]
-                )
-
-    def updateUser(self, user: Item) -> None:
+    def updateItem(self, user: Item) -> None:
         assert user.id is not None
         with self.db.connection as conn:
             with conn.cursor() as cursor:
@@ -25,7 +17,7 @@ class UserRepository:
                     [user.nome, user.descricao, user.tipo]  
                  )
     
-    def deleteUser(self, id) -> None:
+    def deleteItem(self, id) -> None:
         with self.db.connection as conn:
             with conn.cursor() as cursor:
                 cursor.execute(
