@@ -28,6 +28,7 @@ class SalaRepository:
         with self.db.connection as conn:
             with conn.cursor() as cursor:
                 cursor.execute(
-                     "UPDATE INTO public.Jogador(nome, vida, progresso, ataque, defesa, id_sala, id_nivel) VALUES(%s, %s, %s, %s, %s, %s, %s)",
-                    [user.id_sala]  
+                     "UPDATE public.Jogador SET id_sala = %s WHERE id = %s ",
+                    [opcao, user.id]  
                  )
+    
