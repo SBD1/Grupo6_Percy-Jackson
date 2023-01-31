@@ -2,6 +2,7 @@ from typing import Optional
 
 from model.salas import Sala
 from repositories.sala_repository import SalaRepository
+from repositories.user_repository import UserRepository
 
 from model.users import User
 
@@ -10,6 +11,7 @@ from model.users import User
 class SalaService:
     def __init__(self):
         self.salaRepository = SalaRepository()
+        self.userRepository = UserRepository()
     
     def mover(self, user: User) -> Optional[User]:
         
@@ -31,5 +33,9 @@ class SalaService:
         elif inp == 'o' or inp == 'O':
             self.salaRepository.updateSala(user, salaAtual.destinos[3])
 
+        user = self.userRepository.findUserByName(user.nome)
+
         print(user)
+
+        return user
 

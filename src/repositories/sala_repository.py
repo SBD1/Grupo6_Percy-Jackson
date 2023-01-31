@@ -32,3 +32,19 @@ class SalaRepository:
                     [opcao, user.id]  
                  )
     
+    def findSalaById(self, id) -> Optional[Sala]:
+        with self.db.connection as conn:
+            with conn.cursor() as cursor:
+                cursor.execute(
+                    "SELECT id, nome, descricao, id_nivel, destinos FROM public.Sala WHERE id = %s",
+                    [id]
+                )
+                result = cursor.fetchone()
+        
+        if result is None:
+            print(f'Sala com id {id} não encontrada!')
+            return None
+        
+        sala = Sala(*result)
+        
+        return sala

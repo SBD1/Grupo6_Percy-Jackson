@@ -17,10 +17,10 @@ insert into Sala(nome, descricao, id_nivel, destinos) values ('2', 'Sala com mon
 insert into Sala(nome, descricao, id_nivel, destinos) values ('3', 'Sala com monstros e com todos os itens', '1', ARRAY [0, 2, 6, 0]);
 insert into Sala(nome, descricao, id_nivel, destinos) values ('4', 'Sala vitoriosa', '1', ARRAY [5, 0, 7, 1]);
 insert into Sala(nome, descricao, id_nivel, destinos) values ('5', 'Sala vitoriosa', '1', ARRAY [6, 4, 8, 2]);
-insert into Sala(nome, descricao, id_nivel, destinos) values ('6', 'Sala com monstros e sem item', '2', ARRAY [0, 5, 9, 3]);
-insert into Sala(nome, descricao, id_nivel, destinos) values ('7', 'Sala com monstros com alguns itens', '2', ARRAY [8, 0, 0, 4]);
-insert into Sala(nome, descricao, id_nivel, destinos) values ('8', 'Sala com monstros e com todos os itens', '2', ARRAY [9, 7, 0, 5]);
-insert into Sala(nome, descricao, id_nivel, destinos) values ('9', 'Sala vitoriosa', '2', ARRAY [0, 8, 0, 6]);
+insert into Sala(nome, descricao, id_nivel, destinos) values ('6', 'Sala com monstros e sem item', '1', ARRAY [0, 5, 9, 3]);
+insert into Sala(nome, descricao, id_nivel, destinos) values ('7', 'Sala com monstros com alguns itens', '1', ARRAY [8, 0, 0, 4]);
+insert into Sala(nome, descricao, id_nivel, destinos) values ('8', 'Sala com monstros e com todos os itens', '1', ARRAY [9, 7, 0, 5]);
+insert into Sala(nome, descricao, id_nivel, destinos) values ('9', 'Sala vitoriosa', '1', ARRAY [0, 8, 0, 6]);
 
 /* insert into Sala(nome, descricao, id_nivel, destinos) values ('10', 'Sala vitoriosa', '2', ARRAY [2, 3]);
 insert into Sala(nome, descricao, id_nivel, destinos) values ('11', 'Sala com monstros e sem item', '3', ARRAY [2, 3]);

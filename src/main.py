@@ -69,7 +69,7 @@ class Main:
 
             if inp == '1':
                 if self.activeUser != None:
-                    self.salaService.mover(self.activeUser)
+                   self.activeUser = self.salaService.mover(self.activeUser)
                 
             else:
                 print('\nOpção Inválida!')
