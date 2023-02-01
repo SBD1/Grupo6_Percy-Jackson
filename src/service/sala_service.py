@@ -13,8 +13,11 @@ class SalaService:
         self.salaRepository = SalaRepository()
         self.userRepository = UserRepository()
     
+    def getSala(self, user):
+        salaAtual = self.salaRepository.salaAtual(user)
+        return salaAtual
+    
     def mover(self, user: User) -> Optional[User]:
-        
         salaAtual = self.salaRepository.salaAtual(user)
         
         inp = input("Você possui as seguintes opções:\n" +
@@ -32,8 +35,13 @@ class SalaService:
             self.salaRepository.updateSala(user, salaAtual.destinos[2])
         elif inp == 'o' or inp == 'O':
             self.salaRepository.updateSala(user, salaAtual.destinos[3])
-
-        user = self.userRepository.findUserByName(user.nome)
+        
+        result = self.userRepository.findUserByName(user.nome)
+        
+        if result is not None:
+            user = result
+        else:
+            print('User not found')
 
         print(user)
 

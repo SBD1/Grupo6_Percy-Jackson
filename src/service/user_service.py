@@ -1,6 +1,7 @@
 from typing import Optional
 
 from model.users import User
+from model.salas import Sala
 from repositories.user_repository import UserRepository
 
 
@@ -34,9 +35,12 @@ class UserService:
             willCreateNewUser = input("O personagem informado não existe! Deseja cria-lo? (S/n)\n")
             if willCreateNewUser in ['s', 'S']:
                 newUser = self.create(nickname)
-                return self.userRepository.findUserByName(newUser.nome)
+                if newUser is not None: 
+                    return self.userRepository.findUserByName(newUser.nome)
             else:
                 return None
         else:
             return self.userRepository.findUserByName(nickname)
+    
+    # def scanRoom(self) -> Optional[sala]
         
