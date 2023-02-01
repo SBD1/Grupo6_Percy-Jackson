@@ -1,5 +1,5 @@
 CREATE TABLE IF NOT EXISTS Nivel (
-    id INT GENERATED ALWAYS AS IDENTITY,
+    id INT,
     descricao VARCHAR(300),
     PRIMARY KEY(id)
 );
@@ -84,7 +84,8 @@ CREATE TABLE IF NOT EXISTS Boss (
     id_nivel INT,
     id_inimigo INT,
     PRIMARY KEY(id),
-    CONSTRAINT fk_nivel FOREIGN KEY(id_nivel) REFERENCES Nivel(id)
+    CONSTRAINT fk_nivel FOREIGN KEY(id_nivel) REFERENCES Nivel(id),
+    CONSTRAINT fk_inimigo FOREIGN KEY(id_inimigo) REFERENCES Inimigo(id)
     /*Adicionar a chave estrangeira de Nivel*/
 );
 CREATE TABLE IF NOT EXISTS Comum (
