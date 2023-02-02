@@ -1,5 +1,5 @@
 class Sala:
-    def __init__(self, id, nome, descricao, id_nivel, destinos):
+    def __init__(self, id=None, nome, descricao, id_nivel, destinos):
         self.id = id
         self.nome = nome
         self.descricao = descricao

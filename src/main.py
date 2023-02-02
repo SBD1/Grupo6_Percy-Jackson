@@ -3,7 +3,6 @@ import os
 
 from typing import Optional
 from service.user_service import UserService
-from service.sala_service import SalaService
 
 def clear():
     os.system('cls')
@@ -14,8 +13,6 @@ class Main:
     def __init__(self):
         self.userService = UserService()
         self.activeUser = None
-        self.salaService = SalaService()
-
         
     def start(self):
 
@@ -60,26 +57,9 @@ class Main:
 
     def play(self) -> Optional[bool]:
         print(f'Login bem-sucedido no personagem {self.activeUser}')
-        print("Digite 1 para se mover: ")
-
-        inp = 0
-
-        while (inp not in [1, 2, 3]):
-            inp = input('> ')
-
-            if inp == '1':
-                if self.activeUser != None:
-                    self.activeUser = self.salaService.mover(self.activeUser)
-                
-            else:
-                print('\nOpção Inválida!')
-        
         exit = input('Digite qualquer coisa para sair: ')
         if exit is not None:
             return False
-    
-    # def showOptions(self):
-        
     
 if __name__ == '__main__':
     game = Main()
