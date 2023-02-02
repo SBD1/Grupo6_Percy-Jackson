@@ -13,7 +13,7 @@ class Main:
 
     def __init__(self):
         self.userService = UserService()
-        # self.activeUser = None
+        self.activeUser = None
         self.salaService = SalaService()
 
         
@@ -69,7 +69,7 @@ class Main:
 
             if inp == '1':
                 if self.activeUser != None:
-                   self.activeUser = self.salaService.mover(self.activeUser)
+                    self.activeUser = self.salaService.mover(self.activeUser)
                 
             else:
                 print('\nOpção Inválida!')
@@ -77,6 +77,9 @@ class Main:
         exit = input('Digite qualquer coisa para sair: ')
         if exit is not None:
             return False
+    
+    # def showOptions(self):
+        
     
 if __name__ == '__main__':
     game = Main()

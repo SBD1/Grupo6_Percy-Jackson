@@ -51,10 +51,10 @@ CREATE TABLE IF NOT EXISTS Inventario (
     id INT GENERATED ALWAYS AS IDENTITY,
     tamanho_inventario INT NOT NULL,
     momento_coleta_Item TIMESTAMPTZ NOT NULL,
-    id_item INT,
+    id_item INT[3],
     id_jogador INT,
     PRIMARY KEY(id),
-    CONSTRAINT fk_item FOREIGN KEY(id_item) REFERENCES Item(id),
+    /*CONSTRAINT fk_item FOREIGN KEY(id_item) REFERENCES Item(id),*/
     CONSTRAINT fk_jogador FOREIGN KEY(id_jogador) REFERENCES Jogador(id)
 );
 CREATE TABLE IF NOT EXISTS Bau (
@@ -91,7 +91,7 @@ CREATE TABLE IF NOT EXISTS Boss (
     CONSTRAINT fk_nivel FOREIGN KEY(id_nivel) REFERENCES Nivel(id),
     CONSTRAINT fk_inimigo FOREIGN KEY(id_inimigo) REFERENCES Inimigo(id)
     /*Adicionar a chave estrangeira de Nivel*/
-);
+) /*INHERITS (Inimigo)*/;
 CREATE TABLE IF NOT EXISTS Comum (
     id INT GENERATED ALWAYS AS IDENTITY,
     id_inimigo INT,
