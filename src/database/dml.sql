@@ -91,6 +91,11 @@ insert into Boss(multi_vida, multi_ataque, id_nivel, id_inimigo) values(0.8, 0.8
 -- insert into NPC(nome,fala, id_sala) values('Athena','', '3');
 -- insert into NPC(nome,fala, id_sala) values('Sally','', '3');
 
+--- Narrador 
+insert into Narrador(nome, fala, id_sala) values ('nome1', 'Na primeira fase do jogo...', 1);
+insert into Narrador(nome, fala, id_sala) values ('nome2', 'Nessa sala, voce precisa...', 2);
+insert into Narrador(nome, fala, id_sala) values ('nome3', 'Na terceira fase do jogo...', 3);
+insert into Narrador(nome, fala, id_sala) values ('nome4', 'Você conseguiu sair vencer o jogo, passou pelo por perigos e agora se tornou um Deus...', 4);
 
 
 
@@ -103,10 +108,10 @@ insert into Boss(multi_vida, multi_ataque, id_nivel, id_inimigo) values(0.8, 0.8
 --- Amigavél 
  */
 --- Narrador 
--- insert into Narrador(fala, id_sala) values ('Na primeira fase do jogo...', 1);
--- insert into Narrador(fala, id_sala) values ('Nessa sala, voce precisa...', 2);
--- insert into Narrador(fala, id_sala) values ('Na terceira fase do jogo...', 3);
--- insert into Narrador(fala, id_sala) values ('Você conseguiu sair vencer o jogo, passou pelo por perigos e agora se tornou um Deus...', 4);
+-- insert into Narrador(nome, fala, id_sala) values ('nome1', 'Na primeira fase do jogo...', 1);
+-- insert into Narrador(nome, fala, id_sala) values ('nome2', 'Nessa sala, voce precisa...', 2);
+-- insert into Narrador(nome, fala, id_sala) values ('nome3', 'Na terceira fase do jogo...', 3);
+-- insert into Narrador(nome, fala, id_sala) values ('nome4', 'Você conseguiu sair vencer o jogo, passou pelo por perigos e agora se tornou um Deus...', 4);
 
 
 
