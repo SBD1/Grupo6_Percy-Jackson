@@ -37,7 +37,7 @@ $ pip install -r requirements.txt
 $ docker-compose up
 
 # Execute o projeto em outro terminal utilizando
-$ python3 src/app/main.py
+$ python3 src/main.py
 ```
 
 ## Apresentações
