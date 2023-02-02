@@ -46,5 +46,6 @@ $ python3 src/app/main.py
   | -------- | ----- |
   | Módulo 1 | [Link](https://youtu.be/JaqdPm6eawQ) |
   | Módulo 2 | [Link](https://drive.google.com/file/d/158RwuZYBB554RVlv6ljhLN3xi-iY78fm/view?usp=share_link) |
+  | Módulo 3 | [Link](https://drive.google.com/file/d/1D1cE6fn28MuzUUspyHx7IogzPGmPEEbz/view?usp=share_link) |
 
   

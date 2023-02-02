@@ -38,10 +38,4 @@ class UserService:
             else:
                 return None
         else:
-<<<<<<< HEAD
-            activeUser = self.userRepository.findUserByName(nickname)
-            return activeUser
-        
-=======
             return self.userRepository.findUserByName(nickname)
->>>>>>> move-function
