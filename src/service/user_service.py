@@ -41,6 +41,3 @@ class UserService:
                 return None
         else:
             return self.userRepository.findUserByName(nickname)
-    
-    # def scanRoom(self) -> Optional[sala]
-        

@@ -47,3 +47,6 @@ class SalaService:
 
         return user
 
+    def funçao(self, user: User):
+        
+        print(self.salaRepository.encontrarInimigos(user))

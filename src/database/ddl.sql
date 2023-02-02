@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS Magico (
     id_item INT
 );
 CREATE TABLE IF NOT EXISTS Codigo (
-    code VARCHAR(4) NOT NULL,
+    code VARCHAR(10) NOT NULL,
     id_item INT
 );
 CREATE TABLE IF NOT EXISTS Inventario (

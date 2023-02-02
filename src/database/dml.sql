@@ -43,9 +43,7 @@ insert into Magico(multi_vida, teletransporte, id_item) values (100, false, 7);
 insert into Magico(multi_vida, teletransporte, id_item) values (0, true, 8);
 
 --- codigo 
-insert into Codigo(code, id_item) values ('303', 1); 
-insert into Codigo(code, id_item) values ('175',2); 
-insert into Codigo(code, id_item) values ('12', 3); 
+insert into Codigo(code, id_item) values ('30317512', 1); 
 
 --- Bau
 insert into Bau(id_item, id_sala) values(6, 2);
@@ -64,10 +62,12 @@ insert into Inventario(tamanho_inventario, momento_coleta_Item, id_item, id_joga
  */
 
 --- NPC
+insert into NPC(id, nome, fala, id_sala) values(4,'Annabeth Chase','Você baba enquanto dorme', '3');
+
 insert into NPC(id, nome, fala, id_sala) values(1,'Harpia','Morra, meu bem!', '3');
 insert into NPC(id, nome, fala, id_sala) values(2,'Medusa','Deixe-me ver seus olhos. Eu soube que são mais azuis que o Mar Circassiano', '4');
 
-insert into NPC(id, nome, fala, id_sala) values(3,'Minotauro','Rrrrrrr, Eu vou te matar!', '8');
+insert into NPC(id, nome, fala, id_sala) values(3,'Ares','Com medo? Puta', '8');
 
 --- Inimigo
 insert into Inimigo(id, vida, ataque, id_npc) values(1, 20 , 5, 1); 

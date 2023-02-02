@@ -48,3 +48,66 @@ class SalaRepository:
         sala = Sala(*result)
         
         return sala
+
+    def encontrarInimigos(self, user: User):
+       # print(user) 
+        
+        with self.db.connection as conn:
+            with conn.cursor() as cursor:
+                cursor.execute(
+                    """SELECT *
+                        FROM public.comum
+                        join public.inimigo on public.comum.id_inimigo = public.inimigo.id
+                        join public.npc on public.npc.id_sala = %s and public.inimigo.id_npc=npc.id;
+                    """,
+                        [user.id_sala])
+                inimigos = cursor.fetchone()
+        
+        return inimigos
+    
+    def encontrarBoss(self, user: User):
+       
+       # print(user) 
+        
+        with self.db.connection as conn:
+            with conn.cursor() as cursor:
+                cursor.execute(
+                    """SELECT * 
+                        from boss
+                        join inimigo on boss.id_inimigo = inimigo.id
+                        join npc on npc.id_sala = %s and inimigo.id_npc=npc.id
+                    """,
+                        [user.id_sala])
+                boss = cursor.fetchone()
+        
+        return boss
+    
+    def encontrarBau(self, user: User):
+        # print(user) 
+        
+        with self.db.connection as conn:
+            with conn.cursor() as cursor:
+                cursor.execute(
+                    """SELECT *
+                        FROM public.Bau WHERE id_sala = %s
+                    """,
+                        [user.id_sala])
+                bau = cursor.fetchone()
+        
+        return bau
+    
+    def abrirBau(self, user: User):
+        # print(user) 
+        
+        with self.db.connection as conn:
+            with conn.cursor() as cursor:
+                cursor.execute(
+                    """SELECT *
+                        FROM public.Bau
+                        JOIN public.Item ON public.Bau.id_item = public.Item.id
+                        WHERE id_sala = %s
+                    """,
+                        [user.id_sala])
+                item = cursor.fetchone()
+        
+        return item
