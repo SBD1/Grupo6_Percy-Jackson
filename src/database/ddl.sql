@@ -33,16 +33,19 @@ CREATE TABLE IF NOT EXISTS Item (
 );
 CREATE TABLE IF NOT EXISTS Arma (
     multi_ataque FLOAT NOT NULL,
-    id_item INT
+    id_item INT,
+    CONSTRAINT fk_item FOREIGN KEY(id_item) REFERENCES Item(id)
 );
 CREATE TABLE IF NOT EXISTS Magico (
     multi_vida FLOAT NOT NULL,
     teletransporte BOOlEAN NOT NULL,
-    id_item INT
+    id_item INT,
+    CONSTRAINT fk_item FOREIGN KEY(id_item) REFERENCES Item(id)
 );
 CREATE TABLE IF NOT EXISTS Codigo (
     code VARCHAR(4) NOT NULL,
-    id_item INT
+    id_item INT,
+    CONSTRAINT fk_item FOREIGN KEY(id_item) REFERENCES Item(id)
 );
 CREATE TABLE IF NOT EXISTS Inventario (
     id INT GENERATED ALWAYS AS IDENTITY,
@@ -75,7 +78,8 @@ CREATE TABLE IF NOT EXISTS Inimigo (
     vida INT NOT NULL,
     ataque VARCHAR(30) NOT NULL,
     id_npc INT,
-    PRIMARY KEY(id)
+    PRIMARY KEY(id),
+    CONSTRAINT fk_npc FOREIGN KEY(id_npc) REFERENCES NPC(id)
 );
 CREATE TABLE IF NOT EXISTS Boss (
     id INT GENERATED ALWAYS AS IDENTITY,
@@ -91,13 +95,15 @@ CREATE TABLE IF NOT EXISTS Boss (
 CREATE TABLE IF NOT EXISTS Comum (
     id INT GENERATED ALWAYS AS IDENTITY,
     id_inimigo INT,
-    PRIMARY KEY(id)
+    PRIMARY KEY(id),
+    CONSTRAINT fk_inimigo FOREIGN KEY(id_inimigo) REFERENCES Inimigo(id)
 );
 
 CREATE TABLE IF NOT EXISTS Amigavel (
     id INT,
     id_npc INT,
-    PRIMARY KEY(id)
+    PRIMARY KEY(id),
+    CONSTRAINT fk_npc FOREIGN KEY(id_npc) REFERENCES NPC(id)
 );
 
 CREATE TABLE IF NOT EXISTS Narrador (
@@ -105,7 +111,8 @@ CREATE TABLE IF NOT EXISTS Narrador (
     id_sala INT,
     id_amigavel INT,
     PRIMARY KEY(id),
-    CONSTRAINT fk_sala FOREIGN KEY(id_sala) REFERENCES Sala(id)
+    CONSTRAINT fk_sala FOREIGN KEY(id_sala) REFERENCES Sala(id),
+    CONSTRAINT fk_amigavel FOREIGN KEY(id_amigavel) REFERENCES Amigavel(id)
 );
 CREATE TABLE IF NOT EXISTS Amigo (
     id INT GENERATED ALWAYS AS IDENTITY,
@@ -113,5 +120,6 @@ CREATE TABLE IF NOT EXISTS Amigo (
     id_jogador INT,
     id_amigavel INT,
     PRIMARY KEY(id),
-    CONSTRAINT fk_jogador FOREIGN KEY(id_jogador) REFERENCES Jogador(id)
+    CONSTRAINT fk_jogador FOREIGN KEY(id_jogador) REFERENCES Jogador(id),
+    CONSTRAINT fk_amigavel FOREIGN KEY(id_amigavel) REFERENCES Amigavel(id)
 );
