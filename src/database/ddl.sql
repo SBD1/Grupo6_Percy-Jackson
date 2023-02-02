@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS Inventario (
     id INT GENERATED ALWAYS AS IDENTITY,
     tamanho_inventario INT NOT NULL,
     momento_coleta_Item TIMESTAMPTZ NOT NULL,
-    id_item INT,
+    id_item INT[3],
     id_jogador INT,
     PRIMARY KEY(id),
     CONSTRAINT fk_item FOREIGN KEY(id_item) REFERENCES Item(id),
@@ -72,7 +72,7 @@ CREATE TABLE IF NOT EXISTS Inimigo (
     ataque VARCHAR(30) NOT NULL,
     time_ataque INT NOT NULL,
     PRIMARY KEY(id)
-);
+) INHERIT();
 CREATE TABLE IF NOT EXISTS Comum (
     id INT GENERATED ALWAYS AS IDENTITY,
     PRIMARY KEY(id)
