@@ -34,16 +34,17 @@ insert into Item(id, nome, descricao) values (8, 'Tênis Alados de Hermes', 'Tel
 
 
 -- --- Arma 
-insert into Arma(multi_ataque, id_item) values (20, 4);
-insert into Arma(multi_ataque, id_item) values (15, 5);
-insert into Arma(multi_ataque, id_item) values (10, 6);
+insert into Arma(nome, descricao, multi_ataque, id_item) values ('Código', 'Esse código será utilizado para desbloquear o próximo nível. Guarde-o com cuidado!', 20, 4);
+insert into Arma(nome, descricao, multi_ataque, id_item) values ('Código', 'Esse código será utilizado para desbloquear o próximo nível. Guarde-o com cuidado!', 15, 5);
+insert into Arma(nome, descricao, multi_ataque, id_item) values ('Código', 'Esse código será utilizado para desbloquear o próximo nível. Guarde-o com cuidado!', 10, 6);
 
 -- --- magico 
-insert into Magico(multi_vida, teletransporte, id_item) values (100, false, 7);
-insert into Magico(multi_vida, teletransporte, id_item) values (0, true, 8);
+insert into Magico(nome, descricao, multi_vida, teletransporte, id_item) values ('Código', 'Esse código será utilizado para desbloquear o próximo nível. Guarde-o com cuidado!', 100, false, 7);
+insert into Magico(nome, descricao, multi_vida, teletransporte, id_item) values ('Código', 'Esse código será utilizado para desbloquear o próximo nível. Guarde-o com cuidado!', 0, true, 8);
 
 --- codigo 
-insert into Codigo(code, id_item) values ('30317512', 1); 
+insert into Codigo(nome, descricao, code, id_item) values ('Código', 'Esse código será utilizado para desbloquear o próximo nível. Guarde-o com cuidado!', '30317512', 1); 
+
 
 --- Bau
 insert into Bau(id_item, id_sala) values(6, 2);
@@ -70,17 +71,17 @@ insert into NPC(id, nome, fala, id_sala) values(2,'Medusa','Deixe-me ver seus ol
 insert into NPC(id, nome, fala, id_sala) values(3,'Ares','Com medo? Puta', '8');
 
 --- Inimigo
-insert into Inimigo(id, vida, ataque, id_npc) values(1, 20 , 5, 1); 
-insert into Inimigo(id, vida, ataque, id_npc) values(2, 20 , 5, 2); 
+insert into Inimigo(id, nome, fala, vida, ataque, id_npc) values(1, 'Harpia','Morra, meu bem!', 20 , 5, 1); 
+insert into Inimigo(id, nome, fala, vida, ataque, id_npc) values(2, 'Harpia','Morra, meu bem!', 20 , 5, 2); 
 
-insert into Inimigo(id, vida, ataque, id_npc) values(3, 20 , 5, 3); 
+insert into Inimigo(id, nome, fala, vida, ataque, id_npc) values(3, 'Harpia','Morra, meu bem!', 20 , 5, 3); 
 
 --- Comum
-insert into Comum(id_inimigo) values(1); 
-insert into Comum(id_inimigo) values(2); 
+insert into Comum(nome, fala, vida, ataque, id_npc, id_inimigo) values('Harpia','Morra, meu bem!', 20 , 5, 1, 1); 
+insert into Comum(nome, fala, vida, ataque, id_npc, id_inimigo) values('Harpia','Morra, meu bem!', 20 , 5, 1, 2); 
 
 -- --- Boss
-insert into Boss(multi_vida, multi_ataque, id_nivel, id_inimigo) values(0.8, 0.8, 1, 3);
+insert into Boss(nome, fala, vida, ataque, id_npc, multi_vida, multi_ataque, id_nivel, id_inimigo) values('Harpia','Morra, meu bem!', 20 , 5, 1, 0.8, 0.8, 1, 3);
 
 -- insert into NPC(nome,fala, id_sala) values('Chiron','', '1');
 -- insert into NPC(nome,fala, id_sala) values('Poseidon','', '2');

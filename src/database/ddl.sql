@@ -32,18 +32,27 @@ CREATE TABLE IF NOT EXISTS Item (
     PRIMARY KEY(id)
 );
 CREATE TABLE IF NOT EXISTS Arma (
+    id INT GENERATED ALWAYS AS IDENTITY,
     multi_ataque FLOAT NOT NULL,
-    id_item INT
-);
+    id_item INT,
+    PRIMARY KEY(id),
+    CONSTRAINT fk_item FOREIGN KEY(id_item) REFERENCES Item(id)
+) INHERITS(Item);
 CREATE TABLE IF NOT EXISTS Magico (
+    id INT GENERATED ALWAYS AS IDENTITY,
     multi_vida FLOAT NOT NULL,
     teletransporte BOOlEAN NOT NULL,
-    id_item INT
-);
+    id_item INT,
+    PRIMARY KEY(id),
+    CONSTRAINT fk_item FOREIGN KEY(id_item) REFERENCES Item(id)
+) INHERITS(Item);
 CREATE TABLE IF NOT EXISTS Codigo (
-    code VARCHAR(10) NOT NULL,
-    id_item INT
-);
+    id INT GENERATED ALWAYS AS IDENTITY,
+    code VARCHAR(4) NOT NULL,
+    id_item INT,
+    PRIMARY KEY(id),
+    CONSTRAINT fk_item FOREIGN KEY(id_item) REFERENCES Item(id)
+) INHERITS(Item);
 CREATE TABLE IF NOT EXISTS Inventario (
     id INT GENERATED ALWAYS AS IDENTITY,
     tamanho_inventario INT NOT NULL,
@@ -75,8 +84,9 @@ CREATE TABLE IF NOT EXISTS Inimigo (
     vida INT NOT NULL,
     ataque VARCHAR(30) NOT NULL,
     id_npc INT,
-    PRIMARY KEY(id)
-); /*INHERITS (NPC);*/
+    PRIMARY KEY(id),
+    CONSTRAINT fk_npc FOREIGN KEY(id_npc) REFERENCES NPC(id)
+) INHERITS(NPC);
 CREATE TABLE IF NOT EXISTS Boss (
     id INT GENERATED ALWAYS AS IDENTITY,
     multi_vida FLOAT NOT NULL,
@@ -87,31 +97,35 @@ CREATE TABLE IF NOT EXISTS Boss (
     CONSTRAINT fk_nivel FOREIGN KEY(id_nivel) REFERENCES Nivel(id),
     CONSTRAINT fk_inimigo FOREIGN KEY(id_inimigo) REFERENCES Inimigo(id)
     /*Adicionar a chave estrangeira de Nivel*/
-) /*INHERITS (Inimigo)*/;
+) INHERITS (Inimigo);
 CREATE TABLE IF NOT EXISTS Comum (
     id INT GENERATED ALWAYS AS IDENTITY,
     id_inimigo INT,
-    PRIMARY KEY(id)
-);
+    PRIMARY KEY(id),
+    CONSTRAINT fk_inimigo FOREIGN KEY(id_inimigo) REFERENCES Inimigo(id)
+) INHERITS(Inimigo);
 
 CREATE TABLE IF NOT EXISTS Amigavel (
     id INT,
     id_npc INT,
-    PRIMARY KEY(id)
-);
+    PRIMARY KEY(id),
+    CONSTRAINT fk_npc FOREIGN KEY(id_npc) REFERENCES NPC(id)
+) INHERITS(NPC);
 
 CREATE TABLE IF NOT EXISTS Narrador (
     id INT GENERATED ALWAYS AS IDENTITY,
     id_sala INT,
     id_amigavel INT,
     PRIMARY KEY(id),
-    CONSTRAINT fk_sala FOREIGN KEY(id_sala) REFERENCES Sala(id)
-);
+    CONSTRAINT fk_sala FOREIGN KEY(id_sala) REFERENCES Sala(id),
+    CONSTRAINT fk_amigavel FOREIGN KEY(id_amigavel) REFERENCES Amigavel(id)
+) INHERITS(Amigavel);
 CREATE TABLE IF NOT EXISTS Amigo (
     id INT GENERATED ALWAYS AS IDENTITY,
     mult_inventario FLOAT NOT NULL,
     id_jogador INT,
     id_amigavel INT,
     PRIMARY KEY(id),
-    CONSTRAINT fk_jogador FOREIGN KEY(id_jogador) REFERENCES Jogador(id)
-);
+    CONSTRAINT fk_jogador FOREIGN KEY(id_jogador) REFERENCES Jogador(id),
+    CONSTRAINT fk_amigavel FOREIGN KEY(id_amigavel) REFERENCES Amigavel(id)
+) INHERITS(Amigavel);
