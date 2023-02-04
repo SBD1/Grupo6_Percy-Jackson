@@ -111,7 +111,6 @@ CREATE TABLE IF NOT EXISTS Amigavel (
     PRIMARY KEY(id),
     CONSTRAINT fk_npc FOREIGN KEY(id_npc) REFERENCES NPC(id)
 ) INHERITS(NPC);
-
 CREATE TABLE IF NOT EXISTS Narrador (
     id INT GENERATED ALWAYS AS IDENTITY,
     id_sala INT,
@@ -129,3 +128,11 @@ CREATE TABLE IF NOT EXISTS Amigo (
     CONSTRAINT fk_jogador FOREIGN KEY(id_jogador) REFERENCES Jogador(id),
     CONSTRAINT fk_amigavel FOREIGN KEY(id_amigavel) REFERENCES Amigavel(id)
 ) INHERITS(Amigavel);
+CREATE TABLE IF NOT EXISTS Coordenadas (
+    id INT GENERATED ALWAYS AS IDENTITY,
+    id_origem INT,
+    id_destino INT,
+    PRIMARY KEY(id),
+    CONSTRAINT fk_origem FOREIGN KEY(id_origem) REFERENCES Sala(id),
+    CONSTRAINT fk_destino FOREIGN KEY(id_destino) REFERENCES Sala(id)
+);
