@@ -4,15 +4,15 @@ insert into Nivel(id, descricao) values (2, 'Intermediario');
 insert into Nivel(id, descricao) values (3, 'Avançado');
 
 --- Sala
-insert into Sala(id, nome, descricao, id_nivel, destinos) values (1, '1', 'Sala com monstros e sem item', '1', ARRAY [2, 0, 4, 0]);
-insert into Sala(id, nome, descricao, id_nivel, destinos) values (2, '2', 'Sala com monstros com alguns itens', '1', ARRAY [3, 1, 5, 0]);  --Baú
-insert into Sala(id, nome, descricao, id_nivel, destinos) values (3, '3', 'Sala com monstros e com todos os itens', '1', ARRAY [0, 2, 6, 0]); --NPC Monstro
-insert into Sala(id, nome, descricao, id_nivel, destinos) values (4, '4', 'Sala vitoriosa', '1', ARRAY [5, 0, 7, 1]); --NPC Monstro
-insert into Sala(id, nome, descricao, id_nivel, destinos) values (5, '5', 'Sala vitoriosa', '1', ARRAY [6, 4, 8, 2]); --Baú
-insert into Sala(id, nome, descricao, id_nivel, destinos) values (6, '6', 'Sala com monstros e sem item', '1', ARRAY [0, 5, 9, 3]); --NPC Amigável
-insert into Sala(id, nome, descricao, id_nivel, destinos) values (7, '7', 'Sala com monstros com alguns itens', '1', ARRAY [8, 0, 0, 4]);
-insert into Sala(id, nome, descricao, id_nivel, destinos) values (8, '8', 'Sala com monstros e com todos os itens', '1', ARRAY [9, 7, 0, 5]); --Baú
-insert into Sala(id, nome, descricao, id_nivel, destinos) values (9, '9', 'Sala vitoriosa', '1', ARRAY [0, 8, 0, 6]); --NPC Boss
+insert into Sala(id, nome, descricao, id_nivel, destinos) values (1, '1', 'Entrada', '1', ARRAY [2, 0, 4, 0]);
+insert into Sala(id, nome, descricao, id_nivel, destinos) values (2, '2', 'Sala com Baú', '1', ARRAY [3, 1, 5, 0]);  --B
+insert into Sala(id, nome, descricao, id_nivel, destinos) values (3, '3', 'Sala com Monstros', '1', ARRAY [0, 2, 6, 0]); --NPC Monstro
+insert into Sala(id, nome, descricao, id_nivel, destinos) values (4, '4', 'Sala com Monstros', '1', ARRAY [5, 0, 7, 1]); --NPC Monstro
+insert into Sala(id, nome, descricao, id_nivel, destinos) values (5, '5', 'Sala com Baú', '1', ARRAY [6, 4, 8, 2]); --Baú
+insert into Sala(id, nome, descricao, id_nivel, destinos) values (6, '6', 'Sala com Amigo', '1', ARRAY [0, 5, 9, 3]); --NPC Amigável
+insert into Sala(id, nome, descricao, id_nivel, destinos) values (7, '7', 'Sala Vazia', '1', ARRAY [8, 0, 0, 4]);
+insert into Sala(id, nome, descricao, id_nivel, destinos) values (8, '8', 'Sala com Baú', '1', ARRAY [9, 7, 0, 5]); --Baú
+insert into Sala(id, nome, descricao, id_nivel, destinos) values (9, '9', 'Saída', '1', ARRAY [0, 8, 0, 6]); --NPC Boss
 
 /* insert into Sala(nome, descricao, id_nivel, destinos) values ('10', 'Sala vitoriosa', '2', ARRAY [2, 3]);
 insert into Sala(nome, descricao, id_nivel, destinos) values ('11', 'Sala com monstros e sem item', '3', ARRAY [2, 3]);
