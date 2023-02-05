@@ -86,7 +86,8 @@ class Main:
                     self.checkSala(self.activeUser)
             
             elif inp == '2':
-               self.salaRepository.a
+              # self.salaRepository.a
+              pass
                 
             else:
                 print('\nOpção Inválida!')

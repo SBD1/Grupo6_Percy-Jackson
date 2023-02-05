@@ -14,6 +14,42 @@ insert into Sala(id, nome, descricao, id_nivel, destinos) values (7, '7', 'Sala 
 insert into Sala(id, nome, descricao, id_nivel, destinos) values (8, '8', 'Sala com monstros e com todos os itens', '1', ARRAY [9, 7, 0, 5]); --Baú
 insert into Sala(id, nome, descricao, id_nivel, destinos) values (9, '9', 'Sala vitoriosa', '1', ARRAY [0, 8, 0, 6]); --NPC Boss
 
+--- Ligações entre salas (Coordenadas)   
+
+insert into Coordenadas(id, id_origem, id_destino) values (1, 2);
+insert into Coordenadas(id, id_origem, id_destino) values (1, 4);
+
+insert into Coordenadas(id, id_origem, id_destino) values (2, 1);
+insert into Coordenadas(id, id_origem, id_destino) values (2, 3);
+insert into Coordenadas(id, id_origem, id_destino) values (2, 5);
+
+insert into Coordenadas(id, id_origem, id_destino) values (3, 2);
+insert into Coordenadas(id, id_origem, id_destino) values (3, 6);
+
+insert into Coordenadas(id, id_origem, id_destino) values (4, 1);
+insert into Coordenadas(id, id_origem, id_destino) values (4, 5);
+insert into Coordenadas(id, id_origem, id_destino) values (4, 7);
+
+insert into Coordenadas(id, id_origem, id_destino) values (5, 2);
+insert into Coordenadas(id, id_origem, id_destino) values (5, 4);
+insert into Coordenadas(id, id_origem, id_destino) values (5, 6);
+insert into Coordenadas(id, id_origem, id_destino) values (5, 8);
+
+insert into Coordenadas(id, id_origem, id_destino) values (6, 3);
+insert into Coordenadas(id, id_origem, id_destino) values (6, 5);
+insert into Coordenadas(id, id_origem, id_destino) values (6, 9);
+
+insert into Coordenadas(id, id_origem, id_destino) values (7, 4);
+insert into Coordenadas(id, id_origem, id_destino) values (7, 8);
+
+insert into Coordenadas(id, id_origem, id_destino) values (8, 5);
+insert into Coordenadas(id, id_origem, id_destino) values (8, 7);
+insert into Coordenadas(id, id_origem, id_destino) values (8, 9);
+
+insert into Coordenadas(id, id_origem, id_destino) values (9, 6);
+insert into Coordenadas(id, id_origem, id_destino) values (9, 8);
+
+
 /* insert into Sala(nome, descricao, id_nivel, destinos) values ('10', 'Sala vitoriosa', '2', ARRAY [2, 3]);
 insert into Sala(nome, descricao, id_nivel, destinos) values ('11', 'Sala com monstros e sem item', '3', ARRAY [2, 3]);
 insert into Sala(nome, descricao, id_nivel, destinos) values ('12', 'Sala com monstros com alguns itens', '3', ARRAY [2, 3]);
