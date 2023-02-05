@@ -13,13 +13,22 @@ class SalaRepository:
         with self.db.connection as conn:
             with conn.cursor() as cursor:
                 cursor.execute(
+                    "select id, id_destino from coordenadas where id_origem=1",
+                    [user.id_sala]
+                        )
+                resultCoordenadas = cursor.fetchall()
+
+        with self.db.connection as conn:
+            with conn.cursor() as cursor:
+                cursor.execute(
                     "SELECT id, nome, descricao, id_nivel, destinos FROM public.Sala WHERE id = %s",
                     [user.id_sala]
                         )
-                result = cursor.fetchone()
+                resultSala = cursor.fetchone()
 
-        print(result)
-        salaAtual = Sala(*result)
+        print(resultCoordenadas)
+        print(resultSala)
+        salaAtual = Sala(*resultSala)
             
         return salaAtual
     
@@ -111,3 +120,5 @@ class SalaRepository:
                 item = cursor.fetchone()
         
         return item
+
+    

@@ -128,6 +128,7 @@ CREATE TABLE IF NOT EXISTS Amigo (
     CONSTRAINT fk_jogador FOREIGN KEY(id_jogador) REFERENCES Jogador(id),
     CONSTRAINT fk_amigavel FOREIGN KEY(id_amigavel) REFERENCES Amigavel(id)
 ) INHERITS(Amigavel);
+
 CREATE TABLE IF NOT EXISTS Coordenadas (
     id INT GENERATED ALWAYS AS IDENTITY,
     id_origem INT,
