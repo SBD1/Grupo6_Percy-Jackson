@@ -16,38 +16,38 @@ insert into Sala(id, nome, descricao, id_nivel, destinos) values (9, '9', 'Sala 
 
 --- Ligações entre salas (Coordenadas)   
 
-insert into Coordenadas(id, id_origem, id_destino) values (1, 2);
-insert into Coordenadas(id, id_origem, id_destino) values (1, 4);
+insert into Coordenadas(id_origem, id_destino) values (1, 2);
+insert into Coordenadas(id_origem, id_destino) values (1, 4);
 
-insert into Coordenadas(id, id_origem, id_destino) values (2, 1);
-insert into Coordenadas(id, id_origem, id_destino) values (2, 3);
-insert into Coordenadas(id, id_origem, id_destino) values (2, 5);
+insert into Coordenadas(id_origem, id_destino) values (2, 1);
+insert into Coordenadas(id_origem, id_destino) values (2, 3);
+insert into Coordenadas(id_origem, id_destino) values (2, 5);
 
-insert into Coordenadas(id, id_origem, id_destino) values (3, 2);
-insert into Coordenadas(id, id_origem, id_destino) values (3, 6);
+insert into Coordenadas(id_origem, id_destino) values (3, 2);
+insert into Coordenadas(id_origem, id_destino) values (3, 6);
 
-insert into Coordenadas(id, id_origem, id_destino) values (4, 1);
-insert into Coordenadas(id, id_origem, id_destino) values (4, 5);
-insert into Coordenadas(id, id_origem, id_destino) values (4, 7);
+insert into Coordenadas(id_origem, id_destino) values (4, 1);
+insert into Coordenadas(id_origem, id_destino) values (4, 5);
+insert into Coordenadas(id_origem, id_destino) values (4, 7);
 
-insert into Coordenadas(id, id_origem, id_destino) values (5, 2);
-insert into Coordenadas(id, id_origem, id_destino) values (5, 4);
-insert into Coordenadas(id, id_origem, id_destino) values (5, 6);
-insert into Coordenadas(id, id_origem, id_destino) values (5, 8);
+insert into Coordenadas(id_origem, id_destino) values (5, 2);
+insert into Coordenadas(id_origem, id_destino) values (5, 4);
+insert into Coordenadas(id_origem, id_destino) values (5, 6);
+insert into Coordenadas(id_origem, id_destino) values (5, 8);
 
-insert into Coordenadas(id, id_origem, id_destino) values (6, 3);
-insert into Coordenadas(id, id_origem, id_destino) values (6, 5);
-insert into Coordenadas(id, id_origem, id_destino) values (6, 9);
+insert into Coordenadas(id_origem, id_destino) values (6, 3);
+insert into Coordenadas(id_origem, id_destino) values (6, 5);
+insert into Coordenadas(id_origem, id_destino) values (6, 9);
 
-insert into Coordenadas(id, id_origem, id_destino) values (7, 4);
-insert into Coordenadas(id, id_origem, id_destino) values (7, 8);
+insert into Coordenadas(id_origem, id_destino) values (7, 4);
+insert into Coordenadas(id_origem, id_destino) values (7, 8);
 
-insert into Coordenadas(id, id_origem, id_destino) values (8, 5);
-insert into Coordenadas(id, id_origem, id_destino) values (8, 7);
-insert into Coordenadas(id, id_origem, id_destino) values (8, 9);
+insert into Coordenadas(id_origem, id_destino) values (8, 5);
+insert into Coordenadas(id_origem, id_destino) values (8, 7);
+insert into Coordenadas(id_origem, id_destino) values (8, 9);
 
-insert into Coordenadas(id, id_origem, id_destino) values (9, 6);
-insert into Coordenadas(id, id_origem, id_destino) values (9, 8);
+insert into Coordenadas(id_origem, id_destino) values (9, 6);
+insert into Coordenadas(id_origem, id_destino) values (9, 8);
 
 
 /* insert into Sala(nome, descricao, id_nivel, destinos) values ('10', 'Sala vitoriosa', '2', ARRAY [2, 3]);
