@@ -25,18 +25,41 @@
 
 ## ⚡ Execução do Projeto
 
+## Pré-Requisitos 
+
+Tabela de ferramentas necessárias para rodar o jogo, com as versões recomendadas.
+
+|   Ferramenta   | Versão      | Documentação                                             |
+| :------------: | ----------- | -------------------------------------------------------- |
+|      Git       | >= 2.34.1   | [Git Docs](https://git-scm.com/)                         |
+|     Python     | >= 3.10.6   | [Python Docs](https://www.python.org/)                   |
+|   Python-pip   | >= 22.0.2   | [Pip Docs](https://pypi.org/project/pip/)                |
+|     Docker     | >= 20.10.12 | [Docker Docs](https://www.docker.com/)                   |
+| Docker-compose | >= 1.29.2   | [Docker-compose Docs](https://github.com/docker/compose) |
+
 ## Executando o Projeto
+
+### Clone o repositório
+
 ```bash 
-# Clone o repositório
 $ git clone https://github.com/SBD1/Grupo6_Percy-Jackson.git
+```
 
-# Instale as dependências do Requirements(necessário ter o Python instalado)
+### Instale as dependências do projeto com o pip
+
+```bash 
 $ pip install -r requirements.txt
+```
 
-#Uma vez que se tenha o Docker instalado, verifique se a porta 5432 está disponível e executa o comando para rodar os containers.
+### Verifique se a porta 5432 está disponível e execute o comando abaixo para rodar os containers.
+
+```bash 
 $ docker-compose up
+```
 
-# Execute o projeto em outro terminal utilizando
+### Execute o jogo em outro terminal utilizando
+
+```bash 
 $ python3 src/main.py
 ```
 
