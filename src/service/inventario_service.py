@@ -14,8 +14,7 @@ class InventarioService:
         if(inventary is None):
             print("Inventario está vazio!")
 
-            print('Aperte qualquer tecla para continuar: \n')
-
+            resp = input('Aperte qualquer tecla para continuar: \n')
 
             return None
         else:
@@ -32,7 +31,7 @@ class InventarioService:
     
     def getUserInventary(self, userId):
         inventary = self.inventarioRepository.findInventaryByUserId(userId)
-
+        
         if(inventary is None):
             print("Inventario está vazio!")
 

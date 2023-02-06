@@ -38,7 +38,7 @@ class InventarioRepository:
                 result = cursor.fetchone()
     
         if result is None:
-            print(f'Inventario com id {id} não encontrado!')
+            print(f'Inventario com id {userId} não encontrado!')
             return None
         
         
@@ -54,7 +54,7 @@ class InventarioRepository:
                     [userId]
                 )
                 result = cursor.fetchone()
-    
+        
         if result is None:
             print(f'Inventario com id {id} não encontrado!')
             return None
