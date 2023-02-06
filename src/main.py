@@ -9,6 +9,7 @@ from service.inventario_service import InventarioService
 from repositories.sala_repository import SalaRepository
 
 from model.users import User
+from model.inventario import Inventario
 
 def clear():
     os.system('cls')
@@ -50,10 +51,14 @@ class Main:
 
             if inp == '1':
                 self.activeUser = self.userService.create()
+                self.activeInventary = self.inventarioService.getUserInventary(self.activeUser.id)
                 self.play()
                 
             if inp == '2':
                 self.activeUser = self.userService.login()
+                print(self.activeUser)
+                self.activeInventary = self.inventarioService.getUserInventary(self.activeUser.id)                
+                
                 self.play()
 
             if inp == '3':
@@ -83,12 +88,12 @@ class Main:
             # print(self.activeUser)
 
             if inp == '1':
-                if self.activeUser != None:
+                if self.activeUser != None and self.activeInventary != None:
                     self.activeUser = self.salaService.mover(self.activeUser)
                     self.checkSala(self.activeUser)
             
             elif inp == '2':
-                self.inventarioService.openInventary(self.activeUser.id)
+                self.activeInventary = self.inventarioService.getInventaryWithItems(self.activeUser.id)
 
                 
             else:
@@ -122,6 +127,8 @@ class Main:
                 print('\nOpção Inválida!')
 
     def checkSala(self, activeUser: User = None) -> Optional[User]:
+        print(self.activeInventary)                
+
         if self.salaRepository.encontrarInimigos(activeUser) != None:
             print('Você encontrou um inimigo!')
             print(self.salaRepository.encontrarInimigos(activeUser))
@@ -133,7 +140,8 @@ class Main:
             self.lutar(activeUser)
         
         if self.salaRepository.encontrarBau(activeUser) != None:
-            self.salaService.encontrarBau(activeUser)
+
+            self.salaService.encontrarBau(activeUser, self.activeInventary.id)
 
 
 

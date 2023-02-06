@@ -8,10 +8,32 @@ class InventarioService:
     def __init__(self):
         self.inventarioRepository = InventarioRepository()
     
-    def openInventary(self, userId):
-        salaAtual = self.inventarioRepository.findInventaryByUserId(userId)
+    def getInventaryWithItems(self, userId):
+        inventary = self.inventarioRepository.findInventaryByWithItemsUserId(userId)
 
-        if(salaAtual is None):
+        if(inventary is None):
+            print("Inventario está vazio!")
+
+            print('Aperte qualquer tecla para continuar: \n')
+
+
+            return None
+        else:
+            print("Você possui os seguinte items: \n")
+
+            print(inventary)
+
+            print('Aperte qualquer tecla para continuar: \n')
+
+            inp = input('> ')
+            
+
+        return inventary
+    
+    def getUserInventary(self, userId):
+        inventary = self.inventarioRepository.findInventaryByUserId(userId)
+
+        if(inventary is None):
             print("Inventario está vazio!")
 
             print('Aperte qualquer tecla para continuar: \n')
@@ -20,5 +42,5 @@ class InventarioService:
 
             return None
 
-        return salaAtual
+        return inventary
     

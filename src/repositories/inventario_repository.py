@@ -25,13 +25,31 @@ class InventarioRepository:
                     [id]
                 )
     
+    def findInventaryByWithItemsUserId(self, userId) -> Optional[Inventario]: 
+        with self.db.connection as conn:
+            with conn.cursor() as cursor:
+                cursor.execute(
+                   """SELECT * FROM Item 
+                        join Inventario on Inventario.id = Item.id_inventario
+                        WHERE Inventario.id_jogador = %s;
+                   """,
+                    [userId]
+                )
+                result = cursor.fetchone()
+    
+        if result is None:
+            print(f'Inventario com id {id} não encontrado!')
+            return None
+        
+        
+        return result
+
     def findInventaryByUserId(self, userId) -> Optional[Inventario]: 
         with self.db.connection as conn:
             with conn.cursor() as cursor:
                 cursor.execute(
-                   """SELECT * FROM public.Inventario 
-                   join Item on Item.id = Inventario.id_item
-                   WHERE id_jogador = %s
+                   """SELECT * FROM Inventario 
+                        WHERE Inventario.id_jogador = %s;
                    """,
                     [userId]
                 )
@@ -42,9 +60,9 @@ class InventarioRepository:
             return None
         
         print(result)
-        user = Inventario(*result)
+        inventary = Inventario(*result)
         
-        return user
+        return inventary
     
     def findAll(self) -> list[Inventario]: 
         with self.db.connection as conn:
@@ -57,3 +75,14 @@ class InventarioRepository:
         users = [Inventario(*row) for row in result]
         
         return users    
+    
+    def addItemToInvenatary(self, inventaryId, itemId) -> None: 
+
+        print(inventaryId, itemId)
+        with self.db.connection as conn:
+            with conn.cursor() as cursor:
+                cursor.execute(
+                     "UPDATE Item SET id_inventario = %s WHERE id = %s"
+                     , [inventaryId, itemId])
+        
+        
