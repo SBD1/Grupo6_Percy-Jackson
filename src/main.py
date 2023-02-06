@@ -4,8 +4,12 @@ import os
 from typing import Optional
 from service.user_service import UserService
 from service.sala_service import SalaService
+from service.inventario_service import InventarioService
+
 from repositories.sala_repository import SalaRepository
+
 from model.users import User
+from model.inventario import Inventario
 
 def clear():
     os.system('cls')
@@ -18,6 +22,7 @@ class Main:
         # self.activeUser = None
         self.salaService = SalaService()
         self.salaRepository = SalaRepository()
+        self.inventarioService = InventarioService()
 
         
     def start(self):
@@ -46,11 +51,14 @@ class Main:
 
             if inp == '1':
                 self.activeUser = self.userService.create()
+                self.activeInventary = self.inventarioService.getUserInventary(self.activeUser.id)
                 self.play()
                 
-
             if inp == '2':
                 self.activeUser = self.userService.login()
+                print(self.activeUser)
+                self.activeInventary = self.inventarioService.getUserInventary(self.activeUser.id)                
+                
                 self.play()
 
             if inp == '3':
@@ -63,30 +71,30 @@ class Main:
 
     def play(self) -> Optional[bool]:
         print(f'Login bem-sucedido no personagem {self.activeUser}')
-        
-        
-        print('Escolha uma das opções abaixo(1-3):\n')
-
-        print('1 - Mover de sala\n' +
-              '2 - Abrir inventario\n' +
-              '3 - Sair\n\n\n')
-
-        print('Digite a opção desejada: \n')
 
         inp = 0
 
         while (inp not in [1, 2, 3]):
+            print('Escolha uma das opções abaixo(1-3):\n')
+
+            print('1 - Mover de sala\n' +
+                '2 - Abrir inventario\n' +
+                '3 - Sair\n\n\n')
+
+            print('Digite a opção desejada: \n')
+
             inp = input('> ')
             
             # print(self.activeUser)
 
             if inp == '1':
-                if self.activeUser != None:
+                if self.activeUser != None and self.activeInventary != None:
                     self.activeUser = self.salaService.mover(self.activeUser)
                     self.checkSala(self.activeUser)
             
             elif inp == '2':
-               self.salaRepository.a
+                self.activeInventary = self.inventarioService.getInventaryWithItems(self.activeUser.id)
+
                 
             else:
                 print('\nOpção Inválida!')
@@ -119,6 +127,8 @@ class Main:
                 print('\nOpção Inválida!')
 
     def checkSala(self, activeUser: User = None) -> Optional[User]:
+        print(self.activeInventary)                
+
         if self.salaRepository.encontrarInimigos(activeUser) != None:
             print('Você encontrou um inimigo!')
             print(self.salaRepository.encontrarInimigos(activeUser))
@@ -130,9 +140,9 @@ class Main:
             self.lutar(activeUser)
         
         if self.salaRepository.encontrarBau(activeUser) != None:
-            print('Você encontrou um bau!')
-            print(self.salaRepository.encontrarBau(activeUser))
-            self.salaRepository.abrirBau(activeUser)
+
+            self.salaService.encontrarBau(activeUser, self.activeInventary.id)
+
 
 
 if __name__ == '__main__':

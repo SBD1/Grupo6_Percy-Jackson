@@ -98,18 +98,3 @@ class SalaRepository:
         
         return bau
     
-    def abrirBau(self, user: User):
-        # print(user) 
-        
-        with self.db.connection as conn:
-            with conn.cursor() as cursor:
-                cursor.execute(
-                    """SELECT *
-                        FROM public.Bau
-                        JOIN public.Item ON public.Bau.id_item = public.Item.id
-                        WHERE id_sala = %s
-                    """,
-                        [user.id_sala])
-                item = cursor.fetchone()
-        
-        return item

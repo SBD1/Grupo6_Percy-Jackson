@@ -3,6 +3,7 @@ from typing import Optional
 from model.salas import Sala
 from repositories.sala_repository import SalaRepository
 from repositories.user_repository import UserRepository
+from repositories.inventario_repository import InventarioRepository
 
 from model.users import User
 
@@ -12,6 +13,7 @@ class SalaService:
     def __init__(self):
         self.salaRepository = SalaRepository()
         self.userRepository = UserRepository()
+        self.inventarioRepository = InventarioRepository()
     
     def getSala(self, user):
         salaAtual = self.salaRepository.salaAtual(user)
@@ -50,3 +52,18 @@ class SalaService:
     def funçao(self, user: User):
         
         print(self.salaRepository.encontrarInimigos(user))
+    
+    def encontrarBau(self, user: User, inventaryId):
+        print('Você encontrou um baú com o seguinte conteúdo:\n')
+        bau = self.salaRepository.encontrarBau(user)
+        
+        print(bau[4] + ": " + bau[5] + "\n")
+        print('Deseja adicionar o item ao seu inventário? (s/n):')
+        inp = input('> ')
+
+        if(inp == 's' or inp == 'S'):
+            self.inventarioRepository.addItemToInvenatary(inventaryId, bau[1])
+            print('Item adicionado ao inventário!\n')      
+        else:
+            print('Item descartado!\n')
+       
