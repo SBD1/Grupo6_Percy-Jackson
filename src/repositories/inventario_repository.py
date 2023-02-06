@@ -25,12 +25,15 @@ class InventarioRepository:
                     [id]
                 )
     
-    def findUserById(self, id) -> Optional[Inventario]: 
+    def findInventaryByUserId(self, userId) -> Optional[Inventario]: 
         with self.db.connection as conn:
             with conn.cursor() as cursor:
                 cursor.execute(
-                   "SELECT tamanho_inventario, momento_coleta_Item, id_item, id_jogador, id FROM public.Inventario WHERE id = %s",
-                    [id]
+                   """SELECT * FROM public.Inventario 
+                   join Item on Item.id = Inventario.id_item
+                   WHERE id_jogador = %s
+                   """,
+                    [userId]
                 )
                 result = cursor.fetchone()
     
@@ -38,6 +41,7 @@ class InventarioRepository:
             print(f'Inventario com id {id} não encontrado!')
             return None
         
+        print(result)
         user = Inventario(*result)
         
         return user

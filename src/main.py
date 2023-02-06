@@ -4,7 +4,10 @@ import os
 from typing import Optional
 from service.user_service import UserService
 from service.sala_service import SalaService
+from service.inventario_service import InventarioService
+
 from repositories.sala_repository import SalaRepository
+
 from model.users import User
 
 def clear():
@@ -18,6 +21,7 @@ class Main:
         # self.activeUser = None
         self.salaService = SalaService()
         self.salaRepository = SalaRepository()
+        self.inventarioService = InventarioService()
 
         
     def start(self):
@@ -48,7 +52,6 @@ class Main:
                 self.activeUser = self.userService.create()
                 self.play()
                 
-
             if inp == '2':
                 self.activeUser = self.userService.login()
                 self.play()
@@ -63,9 +66,6 @@ class Main:
 
     def play(self) -> Optional[bool]:
         print(f'Login bem-sucedido no personagem {self.activeUser}')
-        
-        
-        
 
         inp = 0
 
@@ -88,7 +88,8 @@ class Main:
                     self.checkSala(self.activeUser)
             
             elif inp == '2':
-               self.salaRepository.a
+                self.inventarioService.openInventary(self.activeUser.id)
+
                 
             else:
                 print('\nOpção Inválida!')
@@ -134,6 +135,8 @@ class Main:
         if self.salaRepository.encontrarBau(activeUser) != None:
             print('Você encontrou um bau com o seguinte conteúdo:')
             bau = self.salaRepository.encontrarBau(activeUser)
+            print('Deseja adicionar o item ao seu inventário? (s/n):')
+            inp = input('> ')
 
             print(bau[4]+": "+bau[5])
 
