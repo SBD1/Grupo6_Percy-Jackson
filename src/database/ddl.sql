@@ -25,6 +25,14 @@ CREATE TABLE IF NOT EXISTS Jogador (
     CONSTRAINT fk_sala FOREIGN KEY(id_sala) REFERENCES Sala(id),
     CONSTRAINT fk_nivel FOREIGN KEY(id_nivel) REFERENCES Nivel(id)
 );
+CREATE TABLE IF NOT EXISTS Inventario (
+    id INT GENERATED ALWAYS AS IDENTITY,
+    tamanho_inventario INT NOT NULL DEFAULT 3,
+    id_jogador INT,
+    PRIMARY KEY(id),
+
+    CONSTRAINT fk_jogador FOREIGN KEY(id_jogador) REFERENCES Jogador(id)
+);
 CREATE TABLE IF NOT EXISTS Item (
     id INT,
     nome VARCHAR(100) NOT NULL,
@@ -55,14 +63,7 @@ CREATE TABLE IF NOT EXISTS Codigo (
     PRIMARY KEY(id),
     CONSTRAINT fk_item FOREIGN KEY(id_item) REFERENCES Item(id)
 ) INHERITS(Item);
-CREATE TABLE IF NOT EXISTS Inventario (
-    id INT GENERATED ALWAYS AS IDENTITY,
-    tamanho_inventario INT NOT NULL DEFAULT 3,
-    id_jogador INT,
-    PRIMARY KEY(id),
 
-    CONSTRAINT fk_jogador FOREIGN KEY(id_jogador) REFERENCES Jogador(id)
-);
 CREATE TABLE IF NOT EXISTS Bau (
     id INT GENERATED ALWAYS AS IDENTITY,
     id_item INT,
