@@ -84,6 +84,23 @@ CREATE TRIGGER prevent_duplicate_inventario_insert
 BEFORE INSERT ON Inventario
 FOR EACH ROW EXECUTE FUNCTION prevent_duplicates_in_inventario();
 
+-- Cria Inventario quando é criado um jogador
+
+CREATE OR REPLACE FUNCTION creates_inventario_when_create_jogador()
+RETURNS TRIGGER AS $$
+BEGIN
+  INSERT INTO Inventario (tamanho_inventario, id_jogador)
+  VALUES (3, NEW.id);
+RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+
+CREATE TRIGGER create_inventario
+AFTER INSERT ON Jogador
+FOR EACH ROW
+EXECUTE FUNCTION creates_inventario_when_create_jogador();
+
 
 --- Impedir duplicados na tabela NPC
 

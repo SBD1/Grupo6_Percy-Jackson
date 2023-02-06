@@ -55,8 +55,7 @@ CREATE TABLE IF NOT EXISTS Codigo (
 ) INHERITS(Item);
 CREATE TABLE IF NOT EXISTS Inventario (
     id INT GENERATED ALWAYS AS IDENTITY,
-    tamanho_inventario INT NOT NULL,
-    momento_coleta_Item TIMESTAMPTZ NOT NULL,
+    tamanho_inventario INT NOT NULL DEFAULT 3,
     id_item INT[3],
     id_jogador INT,
     PRIMARY KEY(id),

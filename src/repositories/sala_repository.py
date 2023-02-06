@@ -88,8 +88,10 @@ class SalaRepository:
         with self.db.connection as conn:
             with conn.cursor() as cursor:
                 cursor.execute(
-                    """SELECT *
-                        FROM public.Bau WHERE id_sala = %s
+                    """SELECT * 
+                        from Bau
+                        join Item on Bau.id_item = Item.id
+                        WHERE id_sala = %s
                     """,
                         [user.id_sala])
                 bau = cursor.fetchone()

@@ -112,7 +112,8 @@ class Main:
                 return print("lutei")
             
             elif inp == '2':
-                return print('Fugi')
+                self.activeUser = self.salaService.mover(self.activeUser)
+                self.checkSala(self.activeUser)    
             
             else:
                 print('\nOpção Inválida!')
