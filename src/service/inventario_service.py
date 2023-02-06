@@ -11,10 +11,13 @@ class InventarioService:
     def openInventary(self, userId):
         salaAtual = self.inventarioRepository.findInventaryByUserId(userId)
 
-        print(salaAtual)
-
         if(salaAtual is None):
             print("Inventario está vazio!")
+
+            print('Aperte qualquer tecla para continuar: \n')
+
+            inp = input('> ')
+
             return None
 
         return salaAtual

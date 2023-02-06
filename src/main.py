@@ -133,12 +133,8 @@ class Main:
             self.lutar(activeUser)
         
         if self.salaRepository.encontrarBau(activeUser) != None:
-            print('Você encontrou um bau com o seguinte conteúdo:')
-            bau = self.salaRepository.encontrarBau(activeUser)
-            print('Deseja adicionar o item ao seu inventário? (s/n):')
-            inp = input('> ')
+            self.salaService.encontrarBau(activeUser)
 
-            print(bau[4]+": "+bau[5])
 
 
 if __name__ == '__main__':

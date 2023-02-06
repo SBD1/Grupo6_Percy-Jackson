@@ -50,3 +50,14 @@ class SalaService:
     def funçao(self, user: User):
         
         print(self.salaRepository.encontrarInimigos(user))
+    
+    def encontrarBau(self, user: User):
+        print('Você encontrou um baú com o seguinte conteúdo:\n')
+        bau = self.salaRepository.encontrarBau(user)
+        print(bau[4] + ": " + bau[5] + "\n")
+        print('Deseja adicionar o item ao seu inventário? (s/n):')
+        inp = input('> ')
+
+        if(inp == 's' or inp == 'S'):
+            self.salaRepository.addItemToInvenatary(user, bau)
+            print('Item adicionado ao inventário!\n')

@@ -29,6 +29,8 @@ CREATE TABLE IF NOT EXISTS Item (
     id INT,
     nome VARCHAR(100) NOT NULL,
     descricao VARCHAR(200) NOT NULL,
+    id_inventario INT,
+    CONSTRAINT fk_inventario FOREIGN KEY(id_inventario) REFERENCES Inventario(id),
     PRIMARY KEY(id)
 );
 CREATE TABLE IF NOT EXISTS Arma (
@@ -56,10 +58,9 @@ CREATE TABLE IF NOT EXISTS Codigo (
 CREATE TABLE IF NOT EXISTS Inventario (
     id INT GENERATED ALWAYS AS IDENTITY,
     tamanho_inventario INT NOT NULL DEFAULT 3,
-    id_item INT,
     id_jogador INT,
     PRIMARY KEY(id),
-    /*CONSTRAINT fk_item FOREIGN KEY(id_item) REFERENCES Item(id),*/
+
     CONSTRAINT fk_jogador FOREIGN KEY(id_jogador) REFERENCES Jogador(id)
 );
 CREATE TABLE IF NOT EXISTS Bau (

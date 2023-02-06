@@ -13,8 +13,8 @@ class InventarioRepository:
         with self.db.connection as conn:
             with conn.cursor() as cursor:
                 cursor.execute(
-                     "UPDATE INTO public.Inventario(tamanho_inventario, momento_coleta_Item, id_item, id_jogador) VALUES(%s, %s, %s, %s)",
-                    [user.tamanho_inventario, user.momento_coleta_Item, user.id_item, user.id_jogador]  
+                     "UPDATE INTO public.Inventario(tamanho_inventario,id_item, id_jogador) VALUES(%s, %s, %s)",
+                    [user.tamanho_inventario, user.id_item, user.id_jogador]  
                  )
     
     def deleteUser(self, id) -> None:
