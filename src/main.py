@@ -65,17 +65,19 @@ class Main:
         print(f'Login bem-sucedido no personagem {self.activeUser}')
         
         
-        print('Escolha uma das opções abaixo(1-3):\n')
-
-        print('1 - Mover de sala\n' +
-              '2 - Abrir inventario\n' +
-              '3 - Sair\n\n\n')
-
-        print('Digite a opção desejada: \n')
+        
 
         inp = 0
 
         while (inp not in [1, 2, 3]):
+            print('Escolha uma das opções abaixo(1-3):\n')
+
+            print('1 - Mover de sala\n' +
+                '2 - Abrir inventario\n' +
+                '3 - Sair\n\n\n')
+
+            print('Digite a opção desejada: \n')
+
             inp = input('> ')
             
             # print(self.activeUser)
@@ -130,9 +132,10 @@ class Main:
             self.lutar(activeUser)
         
         if self.salaRepository.encontrarBau(activeUser) != None:
-            print('Você encontrou um bau!')
-            print(self.salaRepository.encontrarBau(activeUser))
-            self.salaRepository.abrirBau(activeUser)
+            print('Você encontrou um bau com o seguinte conteúdo:')
+            bau = self.salaRepository.encontrarBau(activeUser)
+
+            print(bau[4]+": "+bau[5])
 
 
 if __name__ == '__main__':
