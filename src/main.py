@@ -151,8 +151,8 @@ class Main:
         
         if self.inimigos.encontrarBoss(activeUser) != None:
             print('Você encontrou um boss!')
-            print(self.inimigos.encontrarBoss(activeUser))
-            self.lutar(activeUser)
+            monstro = self.inimigos.encontrarBoss(activeUser)
+            self.service.lutar(activeUser, monstro)
         
         if self.salaRepository.encontrarBau(activeUser) != None:
 
