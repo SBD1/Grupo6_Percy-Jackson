@@ -15,8 +15,10 @@ class UserService:
         newUser = User(nome, 100, "0%", 50, 20, 1, 1)
         
         self.userRepository.saveUser(newUser)
+        
+        foundUser = self.userRepository.findUserByName(nome)
 
-        return newUser
+        return foundUser
     
     def login(self) -> Optional[User]:
         print('Você está de volta! Os seguintes personagens estão disponíveis: \n')
@@ -34,6 +36,7 @@ class UserService:
             willCreateNewUser = input("O personagem informado não existe! Deseja cria-lo? (S/n)\n")
             if willCreateNewUser in ['s', 'S']:
                 newUser = self.create(nickname)
+                # print(newUser)
                 return newUser
             else:
                 return None

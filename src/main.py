@@ -57,6 +57,7 @@ class Main:
                 self.activeUser = self.userService.create()
                 self.activeInventary = self.inventarioService.getUserInventary(self.activeUser.id)
                 self.play()
+                sys.exit()
                 
             if inp == '2':
                 self.activeUser = self.userService.login()
@@ -64,6 +65,7 @@ class Main:
                 self.activeInventary = self.inventarioService.getUserInventary(self.activeUser.id)                
                 
                 self.play()
+                sys.exit()
 
             if inp == '3':
                 sys.exit()
@@ -75,10 +77,10 @@ class Main:
 
     def play(self) -> Optional[bool]:
         print(f'Login bem-sucedido no personagem {self.activeUser}')
-
         inp = 0
 
         while (inp not in [1, 2, 3]):
+            os.system('cls')
             print('Escolha uma das opções abaixo(1-3):\n')
 
             print('1 - Mover de sala\n' +
@@ -89,16 +91,23 @@ class Main:
 
             inp = input('> ')
             
-            # print(self.activeUser)
-
             if inp == '1':
+                print('inventario do player: ', self.activeInventary)
+
                 if self.activeUser != None and self.activeInventary != None:
                     self.activeUser = self.salaService.mover(self.activeUser)
                     self.checkSala(self.activeUser)
             
             elif inp == '2':
-                self.activeInventary = self.inventarioService.getInventaryWithItems(self.activeUser.id)
+                result = self.inventarioService.getInventaryWithItems(self.activeUser.id)
+                if result is not None:
+                    print(self.activeInventary)
+                    self.activeInventary = result
+                    print(self.activeInventary)
 
+            
+            elif inp == '3':
+                break
                 
             else:
                 print('\nOpção Inválida!')
