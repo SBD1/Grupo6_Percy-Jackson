@@ -1,3 +1,32 @@
+-- Checar espaço de inventário 
+
+CREATE OR REPLACE FUNCTION check_inventory_space()
+RETURNS TRIGGER AS $$
+
+DECLARE 
+  paunocudosql INTEGER := 0;
+
+BEGIN
+  paunocudosql = (SELECT COUNT (Item.id) FROM item WHERE id_inventario = NEW.id_inventario);
+  IF (paunocudosql >= 3) THEN
+    RAISE EXCEPTION 'Inventário Cheio!';
+  END IF;
+  RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER inventory_full_exception
+BEFORE UPDATE OF id_inventario ON Item
+FOR EACH ROW EXECUTE FUNCTION check_inventory_space();
+
+--- Retornar count de itens no inventário
+
+CREATE OR REPLACE FUNCTION count_items() RETURNS integer AS $$  
+     BEGIN
+     RETURN (SELECT COUNT (Item.id) FROM item WHERE id_inventario = NEW.id_inventario);
+    END $$ LANGUAGE plpgsql;
+
+
 -- Impedir duplicados na tabela Nível
 
 CREATE OR REPLACE FUNCTION prevent_duplicate_nivel()
@@ -20,7 +49,7 @@ FOR EACH ROW EXECUTE FUNCTION prevent_duplicate_nivel();
 CREATE OR REPLACE FUNCTION prevent_duplicate_item()
 RETURNS TRIGGER AS $$
 BEGIN
-  IF EXISTS (SELECT * FROM Item WHERE nome = NEW.nome AND descricao = NEW.descricao AND tipo = NEW.tipo) THEN
+  IF EXISTS (SELECT * FROM Item WHERE nome = NEW.nome AND descricao = NEW.descricao) THEN
     RAISE EXCEPTION 'Esse Item já existe!';
   END IF;
   RETURN NEW;
