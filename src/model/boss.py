@@ -1,5 +1,7 @@
-class Boss:
-    def __init__(self, multi_vida,multi_ataque, id_nivel, id=None):
+from model.inimigo import Inimigo
+class Boss(Inimigo):
+    def __init__(self, id, nome, fala, id_sala, vida, ataque, multi_vida, multi_ataque, id_nivel):
+        super().__init__(nome, fala, id_sala, vida, ataque)
         self.id = id
         self.multi_vida = multi_vida
         self.multi_ataque = multi_ataque

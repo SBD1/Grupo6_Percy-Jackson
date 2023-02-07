@@ -73,7 +73,7 @@ CREATE TABLE IF NOT EXISTS Bau (
     CONSTRAINT fk_sala FOREIGN KEY(id_sala) REFERENCES Sala(id)
 );
 CREATE TABLE IF NOT EXISTS NPC(
-    id INT,
+    id INT GENERATED ALWAYS AS IDENTITY,
     nome VARCHAR(50) NOT NULL,
     fala VARCHAR(600) NOT NULL,
     id_sala INT,
@@ -81,36 +81,28 @@ CREATE TABLE IF NOT EXISTS NPC(
     CONSTRAINT fk_sala FOREIGN KEY(id_sala) REFERENCES Sala(id)
 );
 CREATE TABLE IF NOT EXISTS Inimigo (
-    id INT,
+    id INT GENERATED ALWAYS AS IDENTITY,
     vida INT NOT NULL,
     ataque VARCHAR(30) NOT NULL,
-    id_npc INT,
-    PRIMARY KEY(id),
-    CONSTRAINT fk_npc FOREIGN KEY(id_npc) REFERENCES NPC(id)
+    PRIMARY KEY(id)
 ) INHERITS(NPC);
 CREATE TABLE IF NOT EXISTS Boss (
     id INT GENERATED ALWAYS AS IDENTITY,
     multi_vida FLOAT NOT NULL,
     multi_ataque FLOAT NOT NULL,
     id_nivel INT,
-    id_inimigo INT,
     PRIMARY KEY(id),
-    CONSTRAINT fk_nivel FOREIGN KEY(id_nivel) REFERENCES Nivel(id),
-    CONSTRAINT fk_inimigo FOREIGN KEY(id_inimigo) REFERENCES Inimigo(id)
+    CONSTRAINT fk_nivel FOREIGN KEY(id_nivel) REFERENCES Nivel(id)
     /*Adicionar a chave estrangeira de Nivel*/
 ) INHERITS (Inimigo);
 CREATE TABLE IF NOT EXISTS Comum (
     id INT GENERATED ALWAYS AS IDENTITY,
-    id_inimigo INT,
-    PRIMARY KEY(id),
-    CONSTRAINT fk_inimigo FOREIGN KEY(id_inimigo) REFERENCES Inimigo(id)
+    PRIMARY KEY(id)
 ) INHERITS(Inimigo);
 
 CREATE TABLE IF NOT EXISTS Amigavel (
-    id INT,
-    id_npc INT,
-    PRIMARY KEY(id),
-    CONSTRAINT fk_npc FOREIGN KEY(id_npc) REFERENCES NPC(id)
+    id INT GENERATED ALWAYS AS IDENTITY,
+    PRIMARY KEY(id)
 ) INHERITS(NPC);
 CREATE TABLE IF NOT EXISTS Narrador (
     id INT GENERATED ALWAYS AS IDENTITY,

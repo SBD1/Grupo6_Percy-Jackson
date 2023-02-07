@@ -35,7 +35,7 @@ class SalaService:
             self.salaRepository.updateSala(user, salaAtual.destinos[1])
         elif inp == 'n' or inp == 'N':
             self.salaRepository.updateSala(user, salaAtual.destinos[2])
-        elif inp == 'o' or inp == 'O':
+        elif inp == 's' or inp == 'S':
             self.salaRepository.updateSala(user, salaAtual.destinos[3])
         
         result = self.userRepository.findUserByName(user.nome)
@@ -48,10 +48,6 @@ class SalaService:
         print(user)
 
         return user
-
-    def funçao(self, user: User):
-        
-        print(self.salaRepository.encontrarInimigos(user))
     
     def encontrarBau(self, user: User, inventaryId):
         print('Você encontrou um baú com o seguinte conteúdo:\n')

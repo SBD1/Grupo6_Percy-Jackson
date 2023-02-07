@@ -25,7 +25,7 @@ class InventarioRepository:
                     [id]
                 )
     
-    def findInventaryByWithItemsUserId(self, userId) -> Optional[Inventario]: 
+    def findInventaryWithItemsByUserId(self, userId) -> Optional[Inventario]: 
         with self.db.connection as conn:
             with conn.cursor() as cursor:
                 cursor.execute(
@@ -35,12 +35,11 @@ class InventarioRepository:
                    """,
                     [userId]
                 )
-                result = cursor.fetchone()
+                result = cursor.fetchall()
     
         if result is None:
-            print(f'Inventario com id {id} não encontrado!')
+            print(f'Inventario com id {userId} não encontrado!')
             return None
-        
         
         return result
 
@@ -54,7 +53,7 @@ class InventarioRepository:
                     [userId]
                 )
                 result = cursor.fetchone()
-    
+        
         if result is None:
             print(f'Inventario com id {id} não encontrado!')
             return None
@@ -83,6 +82,6 @@ class InventarioRepository:
             with conn.cursor() as cursor:
                 cursor.execute(
                      "UPDATE Item SET id_inventario = %s WHERE id = %s"
-                     , [inventaryId, itemId])
+                     , [int(inventaryId), itemId])
         
         

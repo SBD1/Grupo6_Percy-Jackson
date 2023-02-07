@@ -78,3 +78,12 @@ class UserRepository:
         users = [User(*row) for row in result]
         
         return users
+    
+    def updateVida(self, user: User) -> None:
+        assert user.id is not None
+        with self.db.connection as conn:
+            with conn.cursor() as cursor:
+                cursor.execute(
+                    "UPDATE public.Jogador SET vida = %s WHERE id = %s",
+                    [user.vida, user.id]
+                )

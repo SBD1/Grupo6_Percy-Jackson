@@ -9,13 +9,12 @@ class InventarioService:
         self.inventarioRepository = InventarioRepository()
     
     def getInventaryWithItems(self, userId):
-        inventary = self.inventarioRepository.findInventaryByWithItemsUserId(userId)
+        inventary = self.inventarioRepository.findInventaryWithItemsByUserId(userId)
 
         if(inventary is None):
             print("Inventario está vazio!")
 
-            print('Aperte qualquer tecla para continuar: \n')
-
+            resp = input('Aperte qualquer tecla para continuar: \n')
 
             return None
         else:
@@ -27,12 +26,11 @@ class InventarioService:
 
             inp = input('> ')
             
-
         return inventary
     
     def getUserInventary(self, userId):
         inventary = self.inventarioRepository.findInventaryByUserId(userId)
-
+        
         if(inventary is None):
             print("Inventario está vazio!")
 
