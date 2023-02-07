@@ -70,7 +70,7 @@ insert into Comum(nome, fala, id_sala, vida, ataque) values('Teste', 'fala', 3, 
 /* insert into Comum(nome, fala, vida, ataque, id_npc, id_inimigo) values('Harpia','Morra, meu bem!', 20 , 5, 1, 2); */
 
 -- --- Boss
-insert into Boss(nome, fala, vida, ataque, multi_vida, multi_ataque, id_nivel) values('Ares','Com medo?', 20 , 5, 0.8, 0.8, 1);
+insert into Boss(nome, fala, vida, ataque, multi_vida, multi_ataque, id_nivel, id_sala) values('Ares','Com medo?', 20 , 5, 0.8, 0.8, 1, 9);
 
 -- insert into NPC(nome,fala, id_sala) values('Chiron','', '1');
 -- insert into NPC(nome,fala, id_sala) values('Poseidon','', '2');

@@ -14,7 +14,8 @@ from repositories.inimigo_repository import InimigoRepository
 from model.inventario import Inventario
 
 def clear():
-    os.system('cls')
+    # os.system('cls')
+    pass
 
 
 class Main:
@@ -80,7 +81,7 @@ class Main:
         inp = 0
 
         while (inp not in [1, 2, 3]):
-            os.system('cls')
+            # os.system('cls')
             print('Escolha uma das opções abaixo(1-3):\n')
 
             print('1 - Mover de sala\n' +
@@ -148,14 +149,15 @@ class Main:
             monstro = self.inimigos.encontrarInimigos(activeUser)
             self.service.lutar(activeUser, monstro)
         
-        if self.salaRepository.encontrarBoss(activeUser) != None:
+        if self.inimigos.encontrarBoss(activeUser) != None:
             print('Você encontrou um boss!')
-            print(self.salaRepository.encontrarBoss(activeUser))
+            print(self.inimigos.encontrarBoss(activeUser))
             self.lutar(activeUser)
         
         if self.salaRepository.encontrarBau(activeUser) != None:
 
             self.salaService.encontrarBau(activeUser, self.activeInventary.id)
+            print('teste' + str(self.activeInventary))
 
 
 

@@ -3,12 +3,15 @@ from model.inimigo import Inimigo
 from repositories.sala_repository import SalaRepository
 from model.comum import Comum
 import time
+from repositories.user_repository import UserRepository
+from model.boss import Boss
 
 class GeneralServices:
     def __init__(self):
-        pass
+        self.salaRepository = SalaRepository()
+        self.userRepository = UserRepository()
 
-    def lutar(self, user: User, inimigo: Comum):
+    def lutar(self, user: User, inimigo):
         print(inimigo)
         print('Escolha uma das opções abaixo(1-2):\n')
 
@@ -27,5 +30,8 @@ class GeneralServices:
                 user.vida -= int(inimigo.ataque)
                 print(f'Sua vida: {user.vida}')
                 time.sleep(2)
+            
+            self.userRepository.updateVida(user)
+            print(user)
 
             return print(inimigo)

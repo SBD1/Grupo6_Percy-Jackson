@@ -93,10 +93,8 @@ CREATE TABLE IF NOT EXISTS Boss (
     multi_vida FLOAT NOT NULL,
     multi_ataque FLOAT NOT NULL,
     id_nivel INT,
-    id_inimigo INT,
     PRIMARY KEY(id),
-    CONSTRAINT fk_nivel FOREIGN KEY(id_nivel) REFERENCES Nivel(id),
-    CONSTRAINT fk_inimigo FOREIGN KEY(id_inimigo) REFERENCES Inimigo(id)
+    CONSTRAINT fk_nivel FOREIGN KEY(id_nivel) REFERENCES Nivel(id)
     /*Adicionar a chave estrangeira de Nivel*/
 ) INHERITS (Inimigo);
 CREATE TABLE IF NOT EXISTS Comum (

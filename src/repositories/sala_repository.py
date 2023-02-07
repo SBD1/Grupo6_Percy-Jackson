@@ -3,7 +3,8 @@ from typing import Optional
 from database.database_handler import DatabaseHandler
 from model.salas import Sala
 from model.inimigo import Inimigo
-
+from model.comum import Comum
+from model.boss import Boss
 from model.users import User
 
 class SalaRepository:
@@ -66,26 +67,9 @@ class SalaRepository:
                 result = cursor.fetchone()
         print(result)
 
-        inimigo = Inimigo(*result)
+        inimigo = Comum(*result)
 
         return inimigo
-    
-    def encontrarBoss(self, user: User):
-       
-       # print(user) 
-        
-        with self.db.connection as conn:
-            with conn.cursor() as cursor:
-                cursor.execute(
-                    """SELECT * 
-                        from boss
-                        join inimigo on boss.id_inimigo = inimigo.id
-                        join npc on npc.id_sala = %s and inimigo.id_npc=npc.id
-                    """,
-                        [user.id_sala])
-                boss = cursor.fetchone()
-        
-        return boss
     
     def encontrarBau(self, user: User):
         # print(user) 

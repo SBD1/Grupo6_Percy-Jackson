@@ -9,7 +9,7 @@ class InventarioService:
         self.inventarioRepository = InventarioRepository()
     
     def getInventaryWithItems(self, userId):
-        inventary = self.inventarioRepository.findInventaryByWithItemsUserId(userId)
+        inventary = self.inventarioRepository.findInventaryWithItemsByUserId(userId)
 
         if(inventary is None):
             print("Inventario está vazio!")
@@ -26,7 +26,6 @@ class InventarioService:
 
             inp = input('> ')
             
-
         return inventary
     
     def getUserInventary(self, userId):
