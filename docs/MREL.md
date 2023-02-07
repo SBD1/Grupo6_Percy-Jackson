@@ -18,6 +18,5 @@ O modelo relacional é um modelo de dados representativos, adequado a ser o mode
 ### Versão 3.0 Normalizada - Final
 
 <p align="center">
-  <img  src="https://user-images.githubusercontent.com/54143767/216208297-d232e6fe-6dcc-4cfb-9edb-caaf779e7494.png">
+  <img  src="(https://user-images.githubusercontent.com/54143767/217132998-198188e4-1dd8-4151-a119-203d075621a2.png">
 </p>
-
