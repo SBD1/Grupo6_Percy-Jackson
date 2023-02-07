@@ -17,6 +17,15 @@
 | Destinos | Possíveis salas para o jogador ir | Int | 10 | Sim | | | Não | Não | ARRAY [2, 0, 4, 0] 
 | Id_nivel | Referência ao nivel em que o jogador está | Int          |         | Sim      | Id_nivel>= 1 && Id_nivel <=3            |         | Não | Sim | 3
 
+## Coordenadas
+
+| Nome    | Descrição                    | Tipo de dado | Tamanho | Not null | Check        | Default | PK  | FK  | Exemplo |
+| ------- | ---------------------------- | ------------ | ------- | -------- | ------------ | ------- | --- | --- | ------- |
+| Id | Identificador único      | Int          |         | Sim      | Id_sala >= 1 |         | Sim | Não | 1       |
+| Id_origem | Identificador onde o jogador está na sala | Int          |         | Sim      | Id_sala >= 1 |         | Não | Sim | 1       |
+| Id_destino | Identificador para onde o jogador vai | Int          |         | Sim      | Id_sala >= 1 |         | Não | Sim | 1       |
+
+
 ## Jogador
 
 | Nome       | Descrição                                          | Tipo de dado | Tamanho | Not null | Check           | Default | PK  | FK  |  Exemplo |
@@ -37,6 +46,9 @@
 | Id       | Identificador do item                       | Int          |         | Sim      | Id_item >= 1 |         | Sim | Não | 2        |
 | Nome          | Nome do item                                | Varchar      | 100      | Sim      |              |         | Não | Não | Código |
 | Descrição | Descrição do item | Varchar | 200 | Sim | | | Não | Não | Esse código será utilizado para desbloquear o próximo nível. Guarde-o com cuidado! |
+| Id_item       | Identificador do item                       | Int          |         | Sim      | Id_item >= 1 |         | Não | Sim | 2        |
+| Id_inventario       | Identificador do inventario                       | Int          |         | Sim      | Id_item >= 1 |         | Não | Sim | 2        |
+
 
 ## Arma
 
@@ -69,7 +81,6 @@
 | ------------- | ------------------------------------------- | ------------ | ------- | -------- | ------------ | ------- | --- | --- |  ------- |
 | Id | Identificador do inventario                 | Int          |         | Sim      |Id_inventario >=1 | 6   | Sim | Não | 1 |
 | Tamanho_inventario       | Tamanho do inventário                       | Int          |         | Sim      |              |         | Não | Não | 6 |
-| Momento_coleta_Item | Momento exato em que o item foi coletado | Date       |         | Sim      |              |         | Não | Não | 2023-01-08 16:43:44.898500 |
 | Id_item       | Identificador do item do inventário         | Int          |         | Sim      | Id_item >= 1 |         | Não | Sim | 2 |
 | Id_jogador     | Identificador do jogador dono do inventário | Int          |         | Sim      | Id_jogador >= 1 |      | Não | Sim | 520 |
 
