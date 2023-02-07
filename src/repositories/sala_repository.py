@@ -2,6 +2,7 @@ from typing import Optional
 
 from database.database_handler import DatabaseHandler
 from model.salas import Sala
+from model.inimigo import Inimigo
 
 from model.users import User
 
@@ -24,7 +25,8 @@ class SalaRepository:
         return salaAtual
     
     def updateSala(self, user: User, opcao: int) -> None:
-        assert user.id is not None
+       # assert user.id is not None
+        print(user)
         with self.db.connection as conn:
             with conn.cursor() as cursor:
                 cursor.execute(
@@ -61,9 +63,12 @@ class SalaRepository:
                         join public.npc on public.npc.id_sala = %s and public.inimigo.id_npc=npc.id;
                     """,
                         [user.id_sala])
-                inimigos = cursor.fetchone()
-        
-        return inimigos
+                result = cursor.fetchone()
+        print(result)
+
+        inimigo = Inimigo(*result)
+
+        return inimigo
     
     def encontrarBoss(self, user: User):
        

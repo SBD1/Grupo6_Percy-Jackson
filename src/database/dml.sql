@@ -61,25 +61,16 @@ insert into Inventario(tamanho_inventario, momento_coleta_Item, id_item, id_joga
  */
 
 --- NPC
-insert into NPC(id, nome, fala, id_sala) values(4,'Annabeth Chase','Você baba enquanto dorme', '3');
+insert into NPC(nome, fala, id_sala) values('Annabeth Chase','Você baba enquanto dorme', '3');
 
-insert into NPC(id, nome, fala, id_sala) values(1,'Harpia','Morra, meu bem!', '3');
-insert into NPC(id, nome, fala, id_sala) values(2,'Medusa','Deixe-me ver seus olhos. Eu soube que são mais azuis que o Mar Circassiano', '4');
-
-insert into NPC(id, nome, fala, id_sala) values(3,'Ares','Com medo? Puta', '8');
-
---- Inimigo
-insert into Inimigo(id, nome, fala, vida, ataque, id_npc) values(1, 'Harpia','Morra, meu bem!', 20 , 5, 1); 
-insert into Inimigo(id, nome, fala, vida, ataque, id_npc) values(2, 'Harpia','Morra, meu bem!', 20 , 5, 2); 
-
-insert into Inimigo(id, nome, fala, vida, ataque, id_npc) values(3, 'Harpia','Morra, meu bem!', 20 , 5, 3); 
+insert into NPC(nome, fala, id_sala) values('Medusa','Deixe-me ver seus olhos. Eu soube que são mais azuis que o Mar Circassiano', '4');
 
 --- Comum
-insert into Comum(nome, fala, vida, ataque, id_npc, id_inimigo) values('Harpia','Morra, meu bem!', 20 , 5, 1, 1); 
-insert into Comum(nome, fala, vida, ataque, id_npc, id_inimigo) values('Harpia','Morra, meu bem!', 20 , 5, 1, 2); 
+insert into Comum(nome, fala, id_sala, vida, ataque) values('Teste', 'fala', 3, 20, 5);
+/* insert into Comum(nome, fala, vida, ataque, id_npc, id_inimigo) values('Harpia','Morra, meu bem!', 20 , 5, 1, 2); */
 
 -- --- Boss
-insert into Boss(nome, fala, vida, ataque, id_npc, multi_vida, multi_ataque, id_nivel, id_inimigo) values('Harpia','Morra, meu bem!', 20 , 5, 1, 0.8, 0.8, 1, 3);
+insert into Boss(nome, fala, vida, ataque, multi_vida, multi_ataque, id_nivel) values('Ares','Com medo?', 20 , 5, 0.8, 0.8, 1);
 
 -- insert into NPC(nome,fala, id_sala) values('Chiron','', '1');
 -- insert into NPC(nome,fala, id_sala) values('Poseidon','', '2');

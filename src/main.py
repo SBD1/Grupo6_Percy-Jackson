@@ -6,6 +6,8 @@ from service.user_service import UserService
 from service.sala_service import SalaService
 from repositories.sala_repository import SalaRepository
 from model.users import User
+from service.general_services import GeneralServices
+from repositories.inimigo_repository import InimigoRepository
 
 def clear():
     os.system('cls')
@@ -18,6 +20,8 @@ class Main:
         # self.activeUser = None
         self.salaService = SalaService()
         self.salaRepository = SalaRepository()
+        self.service = GeneralServices()
+        self.inimigos = InimigoRepository()
 
         
     def start(self):
@@ -119,10 +123,11 @@ class Main:
                 print('\nOpção Inválida!')
 
     def checkSala(self, activeUser: User = None) -> Optional[User]:
-        if self.salaRepository.encontrarInimigos(activeUser) != None:
+        if self.inimigos.encontrarInimigos(activeUser) != None:
             print('Você encontrou um inimigo!')
-            print(self.salaRepository.encontrarInimigos(activeUser))
-            self.lutar(activeUser)
+            print(self.inimigos.encontrarInimigos(activeUser))
+            monstro = self.inimigos.encontrarInimigos(activeUser)
+            self.service.lutar(activeUser, monstro)
         
         if self.salaRepository.encontrarBoss(activeUser) != None:
             print('Você encontrou um boss!')
