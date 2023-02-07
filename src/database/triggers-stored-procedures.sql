@@ -4,11 +4,11 @@ CREATE OR REPLACE FUNCTION check_inventory_space()
 RETURNS TRIGGER AS $$
 
 DECLARE 
-  paunocudosql INTEGER := 0;
+  counts INTEGER := 0;
 
 BEGIN
-  paunocudosql = (SELECT COUNT (Item.id) FROM item WHERE id_inventario = NEW.id_inventario);
-  IF (paunocudosql >= 3) THEN
+  counts = (SELECT COUNT (Item.id) FROM item WHERE id_inventario = NEW.id_inventario);
+  IF (counts >= 3) THEN
     RAISE EXCEPTION 'Inventário Cheio!';
   END IF;
   RETURN NEW;
