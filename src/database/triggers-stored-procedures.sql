@@ -72,7 +72,7 @@ FOR EACH ROW EXECUTE FUNCTION prevent_duplicate_jogador();
 CREATE OR REPLACE FUNCTION prevent_duplicates_in_inventario()
 RETURNS TRIGGER AS $$
 BEGIN
-IF EXISTS (SELECT id FROM Inventario WHERE id_item = NEW.id_item AND id_jogador = NEW.id_jogador) THEN
+IF EXISTS (SELECT id FROM Inventario WHERE id_jogador = NEW.id_jogador) THEN
 RAISE EXCEPTION 'Esse jogador já tem um inventário!';
 END IF;
 RETURN NEW;
